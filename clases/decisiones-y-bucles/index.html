@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Decisiones y Bucles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400..800&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&amp;display=swap">
+<link rel="stylesheet" href="vendor/reveal/reveal.css">
+<link rel="stylesheet" href="deck.css">
+<link rel="stylesheet" href="web.css">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="cover" class="cover" data-transition="fade">
+<svg class="bg" aria-label="" width="1920" height="1080" viewBox="0 0 1920 1080"><defs><pattern id="dots-c" width="48" height="48" patternUnits="userSpaceOnUse"><circle cx="24" cy="24" r="2" fill="#2A2D40"/></pattern></defs><rect width="1920" height="1080" fill="url(#dots-c)"/></svg>
+<div class="cover-text">
+<p class="eyebrow rise" style="--i:0">Introducción a la programación · [Clase __]</p>
+<h1 class="cover-title rise" style="--i:1">Decisiones<br><span class="t-if">y</span> Bucles</h1>
+<p class="soft rise" style="--i:2; max-width:820px">Cómo enseñarle a una computadora a <b class="t-if">elegir</b> y a <b class="t-lp">repetir</b>. Hoy no hay código: solo figuras, flechas y muchos “¿y si…?”</p>
+</div>
+<div class="dg fade" style="--i:3; width:600px; height:600px">
+<svg class="ab" style="left:0; top:0" aria-label="Un pequeño diagrama de flujo: inicio, un rombo con una pregunta, una acción que regresa a la pregunta y una salida hacia el fin" width="600" height="600" viewBox="0 0 600 600">
+<defs>
+<marker id="hg" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#B4B8CC" stroke="none"/></marker>
+<marker id="ho" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#FF9F43" stroke="none"/></marker>
+<marker id="hb" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#6EA8FF" stroke="none"/></marker>
+</defs>
+<rect x="210" y="16" width="180" height="64" rx="32" fill="#F4F0E6"/>
+<path d="M300 80 L300 142" fill="none" stroke="#B4B8CC" stroke-width="4" marker-end="url(#hg)"/>
+<polygon points="300,150 430,250 300,350 170,250" fill="#1B2A4A" stroke="#6EA8FF" stroke-width="5" stroke-linejoin="round"/>
+<path d="M300 350 L300 402" fill="none" stroke="#B4B8CC" stroke-width="4" marker-end="url(#hg)"/>
+<rect x="210" y="410" width="180" height="80" rx="16" fill="#3A2614" stroke="#FF9F43" stroke-width="4"/>
+<path d="M210 450 L90 450 L90 250 L160 250" fill="none" stroke="#FF9F43" stroke-width="5" stroke-linejoin="round" marker-end="url(#ho)"/>
+<path d="M430 250 L530 250 L530 552 L400 552" fill="none" stroke="#6EA8FF" stroke-width="4" stroke-linejoin="round" marker-end="url(#hb)"/>
+<rect x="210" y="520" width="180" height="64" rx="32" fill="#F4F0E6"/>
+<circle cx="300" cy="350" r="13" fill="#FF9F43"><animateMotion dur="6s" repeatCount="indefinite" path="M0 0 L0 100 L-210 100 L-210 -100 L0 -100 Z"/></circle>
+</svg>
+<p class="ab" style="left:170px; top:205px; width:260px; height:90px; line-height:90px; text-align:center; font-family:'Bricolage Grotesque', sans-serif; font-size:80px; font-weight:800; color:#6EA8FF">?</p>
+</div>
+<aside class="notes">Bienvenida. Hoy veremos dos de las ideas más importantes de la programación: tomar decisiones (SI, en inglés “if”) y repetir cosas (MIENTRAS, en inglés “while”). Hoy no escribiremos ni una línea de código: vamos a dibujar. El puntito naranja de la derecha está dando vueltas en un bucle; al final de la clase podrán explicar exactamente qué está haciendo.</aside>
+</section>
+<section id="literal">
+<div class="head rise" style="--i:0">
+<p class="eyebrow">Antes de empezar</p>
+<h2 class="title">Obedece al pie de la letra</h2>
+</div>
+<p class="soft rise" style="--i:1; max-width:1400px">Una computadora nunca adivina y nunca se aburre. Lee tus pasos <b class="t-if">en orden, uno por uno</b>. A eso le llamamos una <b>secuencia</b>.</p>
+<div class="row rise" style="--i:2; gap:16px; align-items:center">
+<div class="n oval" style="width:180px; height:140px"><p>Inicio</p></div>
+<x-connector class="c" style="width:56px; height:0px; align-self:center"></x-connector>
+<div class="n" style="width:300px; height:140px"><p>Toma dos rebanadas de pan</p></div>
+<x-connector class="c" style="width:56px; height:0px; align-self:center"></x-connector>
+<div class="n" style="width:300px; height:140px"><p>Unta mermelada en una</p></div>
+<x-connector class="c" style="width:56px; height:0px; align-self:center"></x-connector>
+<div class="n" style="width:300px; height:140px"><p>Junta las dos rebanadas</p></div>
+<x-connector class="c" style="width:56px; height:0px; align-self:center"></x-connector>
+<div class="n oval" style="width:180px; height:140px"><p>Fin</p></div>
+</div>
+<p class="hand rise" style="--i:3">Si le dices a un robot “pon mermelada en el pan”… ¡quizá ponga el frasco entero encima!</p>
+<p class="soft rise" style="--i:4">Pero la vida real no es una línea recta. A veces hay que <b class="t-if">decidir</b> y a veces hay que <b class="t-lp">repetir</b>.</p>
+<aside class="notes">Actividad rápida (3 min): pidan a la clase instrucciones para hacer un sándwich y síganlas de forma literal, como un robot. “Pon la mermelada en el pan” → pongan el frasco cerrado encima del pan. Se ríen y entienden la idea: la computadora hace exactamente lo que dices, no lo que quisiste decir. Esto es una secuencia: pasos en orden, de arriba hacia abajo.</aside>
+</section>
+<section id="shapes">
+<div class="head rise" style="--i:0">
+<p class="eyebrow">El idioma de los diagramas</p>
+<h2 class="title">Diagramas de flujo: cuatro figuras</h2>
+</div>
+<div class="grid4">
+<div class="card rise" style="--i:1">
+<div class="row" style="height:150px; align-items:center; justify-content:center"><x-shape kind="ellipse" style="width:220px; height:100px; background:#F4F0E6"></x-shape></div>
+<h3>Óvalo</h3>
+<p class="soft">Inicio y fin. Donde la historia empieza y termina.</p>
+</div>
+<div class="card rise" style="--i:2">
+<div class="row" style="height:150px; align-items:center; justify-content:center"><x-shape kind="rounded" style="width:220px; height:110px; background:#2A2D40; border:4px solid #B4B8CC"></x-shape></div>
+<h3>Rectángulo</h3>
+<p class="soft">Una acción. Haz algo: un paso.</p>
+</div>
+<div class="card blue rise" style="--i:3">
+<div class="row" style="height:150px; align-items:center; justify-content:center"><x-shape kind="diamond" style="width:200px; height:140px; background:#1B2A4A; border:4px solid #6EA8FF"></x-shape></div>
+<h3 class="t-if">Rombo</h3>
+<p class="soft">Una pregunta de sí o no. ¡Tiene dos salidas!</p>
+</div>
+<div class="card rise" style="--i:4">
+<div class="row" style="height:150px; align-items:center; justify-content:center"><x-shape kind="arrow-right" style="width:160px; height:80px; background:#F4F0E6"></x-shape></div>
+<h3>Flecha</h3>
+<p class="soft">“Sígueme”. Te lleva al siguiente paso.</p>
+</div>
+</div>
+<p class="hand blue rise" style="--i:5">El rombo es la figura nueva de hoy: ahí viven las decisiones.</p>
+<aside class="notes">Dibujen las cuatro figuras en el pizarrón. Insistan en que el rombo SIEMPRE tiene dos flechas de salida: una para SÍ y otra para NO. Si un rombo tiene una sola salida, algo está mal. Pidan que copien estas figuras en su cuaderno: las usarán en todos los ejercicios.</aside>
+</section>
+<section id="if-intro" class="center" style="gap:24px">
+<svg class="bg" aria-label="" width="1920" height="1080" viewBox="0 0 1920 1080"><defs><pattern id="dots-i" width="48" height="48" patternUnits="userSpaceOnUse"><circle cx="24" cy="24" r="2" fill="#2A2D40"/></pattern></defs><rect width="1920" height="1080" fill="url(#dots-i)"/></svg>
+<x-shape kind="diamond" class="ab fade" style="--i:1; left:1180px; top:220px; width:600px; height:640px; background:#1B2A4A; border:6px solid #6EA8FF"></x-shape>
+<p class="ab rise" style="--i:2; left:1180px; top:400px; width:600px; height:280px; line-height:280px; text-align:center; font-family:'Bricolage Grotesque', sans-serif; font-size:240px; font-weight:800; color:#6EA8FF">?</p>
+<p class="eyebrow rise" style="--i:0">Parte 1 · en inglés: <b>if</b></p>
+<p class="mega t-if rise" style="--i:1">SI…</p>
+<h2 class="title rise" style="--i:2">Tomar decisiones</h2>
+<p class="soft rise" style="--i:3; max-width:900px">La computadora se hace una pregunta de sí o no y, según la respuesta, elige un camino.</p>
+<aside class="notes">Primera gran idea: la condición SI. Cuando más adelante escribamos código la palabra será “if”, en inglés. Por ahora pensamos en español: “SI pasa esto, entonces hago aquello”.</aside>
+</section>
+<section id="umbrella">
+<div class="head rise" style="--i:0">
+<p class="eyebrow">Ya lo haces sin darte cuenta</p>
+<h2 class="title">Decides cosas todo el día</h2>
+</div>
+<!-- A 0,256,260,96  D 360,224,320,160  Y 800,40,360,120  N 800,448,360,120  J 1300,256,340,96 -->
+<div class="dg" style="width:1664px; height:600px">
+<div class="n oval ab pop" style="--i:1; left:0px; top:256px; width:260px; height:96px"><p>Salgo de casa</p></div>
+<x-shape kind="diamond" class="dia ab fade" style="--i:2; left:360px; top:224px; width:320px; height:160px"></x-shape>
+<p class="dq ab fade" style="--i:2; left:360px; top:284px; width:320px">¿Llueve?</p>
+<div class="n ab pop" style="--i:3; left:800px; top:40px; width:360px; height:120px"><p>Llevo paraguas</p></div>
+<div class="n ab pop" style="--i:4; left:800px; top:448px; width:360px; height:120px"><p>Llevo lentes de sol</p></div>
+<div class="n oval ab pop" style="--i:5; left:1300px; top:256px; width:340px; height:96px"><p>Camino a la escuela</p></div>
+<x-connector class="c fade" style="--i:2" x1="260" y1="304" x2="360" y2="304"></x-connector>
+<x-connector class="c blue fade" style="--i:3" x1="520" y1="224" x2="800" y2="100" route="vh"></x-connector>
+<x-connector class="c blue fade" style="--i:4" x1="520" y1="384" x2="800" y2="508" route="vh"></x-connector>
+<x-connector class="c fade" style="--i:5" x1="1160" y1="100" x2="1470" y2="256" route="hv"></x-connector>
+<x-connector class="c fade" style="--i:5" x1="1160" y1="508" x2="1470" y2="352" route="hv"></x-connector>
+<p class="yes ab fade" style="--i:3; left:560px; top:120px; width:76px">SÍ</p>
+<p class="no ab fade" style="--i:4; left:560px; top:444px; width:76px">NO</p>
+<p class="hand blue ab rise" style="--i:6; left:0px; top:20px; width:480px">Dos caminos.<br>La respuesta elige uno.</p>
+</div>
+<aside class="notes">Recorran el diagrama con el dedo, de izquierda a derecha. Pregunten: “Hoy, ¿por cuál camino iríamos?”. Remarquen tres cosas: (1) la pregunta va en un rombo; (2) del rombo salen dos flechas con etiqueta SÍ y NO; (3) sin importar el camino, al final los dos se vuelven a juntar en “Camino a la escuela”. En palabras: SI llueve, llevo paraguas; SI NO, llevo lentes de sol.</aside>
+</section>
+<section id="if-anatomy">
+<div class="head rise" style="--i:0">
+<p class="eyebrow">Anatomía de una decisión</p>
+<h2 class="title">Todo SI tiene tres partes</h2>
+</div>
+<div class="row" style="gap:64px; align-items:flex-start">
+<!-- D 200,0,360,150  Y 0,250,300,100  N 460,250,300,100  J 180,500,400,96 -->
+<div class="dg" style="width:760px; height:620px">
+<x-shape kind="diamond" class="dia ab fade" style="--i:1; left:200px; top:0px; width:360px; height:150px"></x-shape>
+<p class="dq ab fade" style="--i:1; left:200px; top:55px; width:360px">¿Pregunta?</p>
+<div class="n ab pop" style="--i:2; left:0px; top:250px; width:300px; height:100px"><p>Haz esto</p></div>
+<div class="n ab pop" style="--i:3; left:460px; top:250px; width:300px; height:100px"><p>Haz aquello</p></div>
+<div class="n oval ab pop" style="--i:4; left:180px; top:500px; width:400px; height:96px"><p>Sigue adelante</p></div>
+<x-connector class="c blue fade" style="--i:2" x1="200" y1="75" x2="150" y2="250" route="hv"></x-connector>
+<x-connector class="c blue fade" style="--i:3" x1="560" y1="75" x2="610" y2="250" route="hv"></x-connector>
+<x-connector class="c fade" style="--i:4" x1="150" y1="350" x2="150" y2="440" head="none"></x-connector>
+<x-connector class="c fade" style="--i:4" x1="610" y1="350" x2="610" y2="440" head="none"></x-connector>
+<x-connector class="c fade" style="--i:4" x1="150" y1="440" x2="610" y2="440" head="none"></x-connector>
+<x-connector class="c fade" style="--i:4" x1="380" y1="440" x2="380" y2="500"></x-connector>
+<p class="yes ab fade" style="--i:2; left:40px; top:130px; width:76px">SÍ</p>
+<p class="no ab fade" style="--i:3; left:640px; top:130px; width:76px">NO</p>
+<p class="num ab pop" style="--i:5; left:600px; top:0px">1</p>
+<p class="num ab pop" style="--i:5; left:40px; top:370px">2</p>
+<p class="num ab pop" style="--i:5; left:680px; top:370px">3</p>
+</div>
+<div class="col" style="width:840px; gap:20px">
+<div class="card rise" style="--i:2; padding:28px 32px; flex-direction:row; gap:24px; align-items:flex-start">
+<p class="num">1</p>
+<div class="col" style="gap:6px"><h3>La pregunta</h3><p class="soft">Se llama <b class="t-if">condición</b>. Solo puede responderse con sí o con no.</p></div>
+</div>
+<div class="card rise" style="--i:3; padding:28px 32px; flex-direction:row; gap:24px; align-items:flex-start">
+<p class="num">2</p>
+<div class="col" style="gap:6px"><h3>El camino del SÍ</h3><p class="soft">Lo que pasa cuando la respuesta es sí.</p></div>
+</div>
+<div class="card rise" style="--i:4; padding:28px 32px; flex-direction:row; gap:24px; align-items:flex-start">
+<p class="num">3</p>
+<div class="col" style="gap:6px"><h3>El camino del NO</h3><p class="soft">Lo que pasa si no. A veces se le llama <b>si no</b> (en inglés, “else”).</p></div>
+</div>
+<p class="hand blue rise" style="--i:5">Al final, los dos caminos se juntan otra vez.</p>
+</div>
+</div>
+<aside class="notes">Pongan nombre a cada parte. 1) La condición: la pregunta del rombo. 2) El camino del SÍ. 3) El camino del NO, también llamado “si no” (en código será “else”). Pregunta para la clase: ¿qué pasaría si el rombo tuviera una pregunta como “¿qué hora es?”. Respuesta: no funciona, porque no se responde con sí o no. Eso lo vemos en la siguiente diapositiva.</aside>
+</section>
+<section id="conditions" class="paper">
+<div class="head rise" style="--i:0">
+<p class="eyebrow">La condición</p>
+<h2 class="title">Condición = pregunta de sí o no</h2>
+</div>
+<div class="grid2">
+<div class="card blue rise" style="--i:1">
+<div class="step" style="gap:16px"><x-icon name="CheckCircle" style="width:48px; height:48px; color:#1F4FB8"></x-icon><h3>Sirven: sí o no</h3></div>
+<p class="chip">¿El semáforo está en verde?</p>
+<p class="chip">¿Tengo 18 años o más?</p>
+<p class="chip">¿La caja está vacía?</p>
+<p class="chip">¿La contraseña es correcta?</p>
+</div>
+<div class="card lp rise" style="--i:2">
+<div class="step" style="gap:16px"><x-icon name="Warning" style="width:48px; height:48px; color:#A8520A"></x-icon><h3>No sirven: muchas respuestas</h3></div>
+<p class="chip">¿De qué color está el semáforo?</p>
+<p class="chip">¿Cuántos años tengo?</p>
+<p class="chip">¿Qué hay en la caja?</p>
+<p class="soft sm" style="margin-top:8px">Si la respuesta es “azul”, la computadora no sabe qué camino tomar.</p>
+</div>
+</div>
+<div class="row rise" style="--i:3; gap:16px; align-items:center; flex-wrap:wrap">
+<p style="font-weight:700; margin-right:8px">Para comparar usamos:</p>
+<p class="chip">es mayor que &gt;</p>
+<p class="chip">es menor que &lt;</p>
+<p class="chip">es igual a =</p>
+<p class="chip">es al menos ≥</p>
+</div>
+<aside class="notes">Juego rápido: digan preguntas en voz alta y la clase grita “¡SIRVE!” o “¡NO SIRVE!”. Ejemplos: “¿Hace frío?” (sirve), “¿Qué vas a comer?” (no sirve), “¿Tengo más de 10 pesos?” (sirve). Truco: casi cualquier pregunta abierta se puede convertir en una de sí o no. “¿De qué color está el semáforo?” → “¿El semáforo está en verde?”. Los símbolos de abajo son los mismos de matemáticas; los usaremos para comparar números.</aside>
+</section>
+<section id="no-else" style="gap:32px">
+<div class="head rise" style="--i:0">
+<p class="eyebrow">SI sin “si no”</p>
+<h2 class="title">A veces el NO no hace nada</h2>
+</div>
+<!-- A 0,200,260,96  D 360,168,400,160  Y 880,188,320,120  E 1320,200,300,96 -->
+<div class="dg" style="width:1664px; height:520px">
+<div class="n oval ab pop" style="--i:1; left:0px; top:200px; width:260px; height:96px"><p>Llego a casa</p></div>
+<x-shape kind="diamond" class="dia ab fade" style="--i:2; left:360px; top:168px; width:400px; height:160px"></x-shape>
+<p class="dq ab fade" style="--i:2; left:360px; top:228px; width:400px">¿Tengo tarea?</p>
+<div class="n ab pop" style="--i:3; left:880px; top:188px; width:320px; height:120px"><p>Hago la tarea</p></div>
+<div class="n oval ab pop" style="--i:4; left:1320px; top:200px; width:300px; height:96px"><p>Salgo a jugar</p></div>
+<x-connector class="c fade" style="--i:2" x1="260" y1="248" x2="360" y2="248"></x-connector>
+<x-connector class="c blue fade" style="--i:3" x1="760" y1="248" x2="880" y2="248"></x-connector>
+<x-connector class="c fade" style="--i:4" x1="1200" y1="248" x2="1320" y2="248"></x-connector>
+<x-connector class="c blue fade" style="--i:5; border-style:dashed" x1="560" y1="328" x2="560" y2="440" head="none"></x-connector>
+<x-connector class="c blue fade" style="--i:5; border-style:dashed" x1="560" y1="440" x2="1470" y2="440" head="none"></x-connector>
+<x-connector class="c blue fade" style="--i:5; border-style:dashed" x1="1470" y1="440" x2="1470" y2="296"></x-connector>
+<p class="yes ab fade" style="--i:3; left:784px; top:190px; width:76px">SÍ</p>
+<p class="no ab fade" style="--i:5; left:576px; top:350px; width:76px">NO</p>
+<p class="hand ab rise" style="--i:6; left:680px; top:456px; width:780px">¿NO? Te lo saltas y te vas directo a jugar.</p>
+</div>
+<div class="band rise" style="--i:6; padding:24px 40px">
+<p style="font-weight:700; white-space:nowrap">En palabras:</p>
+<p><b class="t-if">SI</b> tengo tarea, hago la tarea. Después, salgo a jugar.</p>
+</div>
+<aside class="notes">No todos los SI necesitan un camino de NO. Aquí, si no hay tarea, simplemente nos saltamos el paso. Señalen la línea punteada: es el atajo del NO. Pregunta para la clase: “¿En qué caso se ejecuta ‘Salgo a jugar’?” Respuesta: ¡siempre! Con o sin tarea, ese paso ocurre. Lo único que cambia es si antes hacemos la tarea.</aside>
+</section>
+<section id="traffic">
+<div class="head rise" style="--i:0">
+<p class="eyebrow">Decisiones encadenadas</p>
+<h2 class="title">¿Más de dos caminos? Otra pregunta</h2>
+</div>
+<!-- S 0,40,280,96  D1 380,8,320,160  D2 860,8,320,160  A1 400,320,280,110  A2 880,320,280,110  A3 1340,320,280,110  J 820,520,400,80 -->
+<div class="dg" style="width:1664px; height:600px">
+<div class="n oval ab pop" style="--i:1; left:0px; top:40px; width:280px; height:96px"><p>Llego al semáforo</p></div>
+<x-shape kind="diamond" class="dia ab fade" style="--i:2; left:380px; top:8px; width:320px; height:160px"></x-shape>
+<p class="dq ab fade" style="--i:2; left:380px; top:68px; width:320px">¿Verde?</p>
+<x-shape kind="diamond" class="dia ab fade" style="--i:3; left:860px; top:8px; width:320px; height:160px"></x-shape>
+<p class="dq ab fade" style="--i:3; left:860px; top:68px; width:320px">¿Amarillo?</p>
+<div class="n ab pop" style="--i:3; left:400px; top:320px; width:280px; height:110px; gap:16px"><x-shape kind="ellipse" style="width:28px; height:28px; background:#5BD18B; flex-shrink:0"></x-shape><p>¡Avanzo!</p></div>
+<div class="n ab pop" style="--i:4; left:880px; top:320px; width:280px; height:110px; gap:16px"><x-shape kind="ellipse" style="width:28px; height:28px; background:#F5D547; flex-shrink:0"></x-shape><p>Freno despacio</p></div>
+<div class="n ab pop" style="--i:5; left:1340px; top:320px; width:280px; height:110px; gap:16px"><x-shape kind="ellipse" style="width:28px; height:28px; background:#FF6B6B; flex-shrink:0"></x-shape><p>Me detengo</p></div>
+<div class="n oval ab pop" style="--i:6; left:820px; top:520px; width:400px; height:80px"><p>Sigo mi camino</p></div>
+<x-connector class="c fade" style="--i:2" x1="280" y1="88" x2="380" y2="88"></x-connector>
+<x-connector class="c blue fade" style="--i:3" x1="700" y1="88" x2="860" y2="88"></x-connector>
+<x-connector class="c blue fade" style="--i:3" x1="540" y1="168" x2="540" y2="320"></x-connector>
+<x-connector class="c blue fade" style="--i:4" x1="1020" y1="168" x2="1020" y2="320"></x-connector>
+<x-connector class="c blue fade" style="--i:5" x1="1180" y1="88" x2="1480" y2="320" route="hv"></x-connector>
+<x-connector class="c fade" style="--i:6" x1="540" y1="430" x2="540" y2="480" head="none"></x-connector>
+<x-connector class="c fade" style="--i:6" x1="1020" y1="430" x2="1020" y2="480" head="none"></x-connector>
+<x-connector class="c fade" style="--i:6" x1="1480" y1="430" x2="1480" y2="480" head="none"></x-connector>
+<x-connector class="c fade" style="--i:6" x1="540" y1="480" x2="1480" y2="480" head="none"></x-connector>
+<x-connector class="c fade" style="--i:6" x1="1020" y1="480" x2="1020" y2="520"></x-connector>
+<p class="yes ab fade" style="--i:3; left:556px; top:220px; width:76px">SÍ</p>
+<p class="no ab fade" style="--i:3; left:742px; top:30px; width:76px">NO</p>
+<p class="yes ab fade" style="--i:4; left:1036px; top:220px; width:76px">SÍ</p>
+<p class="no ab fade" style="--i:5; left:1240px; top:30px; width:76px">NO</p>
+<p class="hand blue ab rise" style="--i:7; left:0px; top:340px; width:340px">El primer SÍ gana. Las demás preguntas ya no se hacen.</p>
+</div>
+<aside class="notes">Cuando hay más de dos opciones, encadenamos preguntas: si no es verde, preguntamos si es amarillo; si tampoco, solo queda rojo. En código esto se llama “else if” (si no, si…). Clave: en cuanto una pregunta dice SÍ, tomamos ese camino y ya no hacemos las demás preguntas. Pregunta: ¿cuántas preguntas hace la computadora si el semáforo está en verde? (Una.) ¿Y en rojo? (Dos.)</aside>
+</section>
+<section id="and-or" class="paper">
+<div class="head rise" style="--i:0">
+<p class="eyebrow">Combinar condiciones</p>
+<h2 class="title">Dos preguntas a la vez: Y / O</h2>
+</div>
+<div class="grid2">
+<div class="card blue rise" style="--i:1; gap:20px">
+<h3><span class="t-if">Y</span> · las dos deben ser SÍ</h3>
+<p class="soft">Voy al cine <b>SI</b> tengo dinero <b class="t-if">Y</b> ya hice la tarea.</p>
+<table style="font-size:28px; color:#14151D">
+<tr><th style="width:30%">¿Dinero?</th><th style="width:38%">¿Tarea hecha?</th><th style="width:32%">¿Voy al cine?</th></tr>
+<tr><td>SÍ</td><td>SÍ</td><td style="color:#1F4FB8">Sí, ¡voy!</td></tr>
+<tr><td>SÍ</td><td>NO</td><td>No</td></tr>
+<tr><td>NO</td><td>SÍ</td><td>No</td></tr>
+<tr><td>NO</td><td>NO</td><td>No</td></tr>
+</table>
+</div>
+<div class="card lp rise" style="--i:2; gap:20px">
+<h3><span class="t-lp">O</span> · basta con un SÍ</h3>
+<p class="soft">Llevo suéter <b>SI</b> hace frío <b class="t-lp">O</b> está lloviendo.</p>
+<table style="font-size:28px; color:#14151D">
+<tr><th style="width:30%">¿Frío?</th><th style="width:38%">¿Lluvia?</th><th style="width:32%">¿Suéter?</th></tr>
+<tr><td>SÍ</td><td>SÍ</td><td style="color:#A8520A">Sí</td></tr>
+<tr><td>SÍ</td><td>NO</td><td style="color:#A8520A">Sí</td></tr>
+<tr><td>NO</td><td>SÍ</td><td style="color:#A8520A">Sí</td></tr>
+<tr><td>NO</td><td>NO</td><td>No</td></tr>
+</table>
+</div>
+</div>
+<aside class="notes">A veces una sola pregunta no alcanza. Con Y, las dos condiciones tienen que cumplirse: solo hay una fila con “sí”. Con O, basta con una: solo hay una fila con “no”. Pidan ejemplos de la vida diaria: “Puedo entrar al juego SI tengo boleto Y mido más de 1.20 m”, “Me quedo en casa SI estoy enfermo O es domingo”. En código estas palabras serán “and” y “or”.</aside>
+</section>
+<section id="ex1-trace" class="paper">
+<div class="head rise" style="--i:0">
+<p class="expill">Mini ejercicio 1 · 3 minutos</p>
+<h2 class="title">Tú eres la computadora</h2>
+</div>
+<div class="row" style="gap:64px; align-items:flex-start">
+<!-- D1 40,0,400,150  A1 580,20,300,110  D2 40,240,400,150  A2 580,260,300,110  A3 90,460,300,100 -->
+<div class="dg" style="width:900px; height:560px">
+<x-shape kind="diamond" class="dia ab fade" style="--i:1; left:40px; top:0px; width:400px; height:150px"></x-shape>
+<p class="dq ab fade" style="--i:1; left:40px; top:55px; width:400px">¿Más de 25°?</p>
+<div class="n ab pop" style="--i:2; left:580px; top:20px; width:300px; height:110px"><p>Me pongo shorts</p></div>
+<x-shape kind="diamond" class="dia ab fade" style="--i:3; left:40px; top:240px; width:400px; height:150px"></x-shape>
+<p class="dq ab fade" style="--i:3; left:40px; top:295px; width:400px">¿Más de 10°?</p>
+<div class="n ab pop" style="--i:4; left:580px; top:260px; width:300px; height:110px"><p>Me pongo suéter</p></div>
+<div class="n ab pop" style="--i:5; left:90px; top:460px; width:300px; height:100px"><p>Me pongo abrigo</p></div>
+<x-connector class="c blue fade" style="--i:2" x1="440" y1="75" x2="580" y2="75"></x-connector>
+<x-connector class="c blue fade" style="--i:3" x1="240" y1="150" x2="240" y2="240"></x-connector>
+<x-connector class="c blue fade" style="--i:4" x1="440" y1="315" x2="580" y2="315"></x-connector>
+<x-connector class="c blue fade" style="--i:5" x1="240" y1="390" x2="240" y2="460"></x-connector>
+<p class="yes ab fade" style="--i:2; left:472px; top:20px; width:76px">SÍ</p>
+<p class="no ab fade" style="--i:3; left:256px; top:174px; width:76px">NO</p>
+<p class="yes ab fade" style="--i:4; left:472px; top:260px; width:76px">SÍ</p>
+<p class="no ab fade" style="--i:5; left:256px; top:412px; width:76px">NO</p>
+</div>
+<div class="col" style="width:700px; gap:22px">
+<p class="rise" style="--i:2; font-weight:700">¿Qué se pone la computadora si hace…?</p>
+<div class="step rise" style="--i:3; gap:20px"><p class="chip" style="width:120px; text-align:center; box-sizing:border-box">30°</p><p class="fragment t-if" style="font-weight:700">Shorts</p></div>
+<div class="step rise" style="--i:4; gap:20px"><p class="chip" style="width:120px; text-align:center; box-sizing:border-box">18°</p><p class="fragment t-if" style="font-weight:700">Suéter</p></div>
+<div class="step rise" style="--i:5; gap:20px"><p class="chip" style="width:120px; text-align:center; box-sizing:border-box">25°</p><p class="fragment t-if" style="font-weight:700">Suéter: ¡25 no es MÁS de 25!</p></div>
+<div class="step rise" style="--i:6; gap:20px"><p class="chip" style="width:120px; text-align:center; box-sizing:border-box">3°</p><p class="fragment t-if" style="font-weight:700">Abrigo</p></div>
+<p class="hand rise" style="--i:7">Sigue las flechas con el dedo. ¡No adivines!</p>
+</div>
+</div>
+<aside class="notes">Pidan a la clase que siga el diagrama con el dedo para cada temperatura y escriba la respuesta antes de revelarla (cada clic muestra una respuesta). La trampa es 25°: la pregunta es “¿más de 25?” y 25 no es más de 25, así que la respuesta es NO y pasamos a la segunda pregunta → suéter. Esto enseña que la computadora es exacta: “más de” no es lo mismo que “al menos”.</aside>
+</section>
+<section id="ex2-draw" class="paper">
+<div class="head rise" style="--i:0">
+<p class="expill">Mini ejercicio 2 · 8 minutos</p>
+<h2 class="title">Tu turno: dibuja el diagrama</h2>
+</div>
+<div class="grid3">
+<div class="card rise" style="--i:1">
+<p class="chip" style="align-self:flex-start; font-size:24px">Fácil</p>
+<h3>La montaña rusa</h3>
+<p class="soft">Puedes subir si mides al menos 120 cm. Si no, te dan un helado.</p>
+</div>
+<div class="card rise" style="--i:2">
+<p class="chip" style="align-self:flex-start; font-size:24px">Medio</p>
+<h3>El menú del comedor</h3>
+<p class="soft">¿Es viernes? Pizza. ¿Es lunes? Pasta. ¿Otro día? Ensalada.</p>
+</div>
+<div class="card lp rise" style="--i:3">
+<p class="chip" style="align-self:flex-start; font-size:24px">Reto</p>
+<h3>La batería del celular</h3>
+<p class="soft">¿Menos de 20%? Activa el ahorro de energía. ¿Menos de 5%? Además, muestra una alerta.</p>
+</div>
+</div>
+<div class="card rise" style="--i:4; padding:32px 40px">
+<p style="font-weight:700">Antes de entregar, revisa:</p>
+<div class="grid4" style="gap:24px">
+<div class="step" style="gap:14px; align-items:flex-start"><x-icon name="CheckCircle" style="width:36px; height:36px; color:#1F4FB8; flex-shrink:0"></x-icon><p class="sm">Empieza con un óvalo</p></div>
+<div class="step" style="gap:14px; align-items:flex-start"><x-icon name="CheckCircle" style="width:36px; height:36px; color:#1F4FB8; flex-shrink:0"></x-icon><p class="sm">Cada pregunta va en un rombo</p></div>
+<div class="step" style="gap:14px; align-items:flex-start"><x-icon name="CheckCircle" style="width:36px; height:36px; color:#1F4FB8; flex-shrink:0"></x-icon><p class="sm">Las flechas del rombo dicen SÍ o NO</p></div>
+<div class="step" style="gap:14px; align-items:flex-start"><x-icon name="CheckCircle" style="width:36px; height:36px; color:#1F4FB8; flex-shrink:0"></x-icon><p class="sm">Termina con un óvalo</p></div>
+</div>
+</div>
+<aside class="notes">Que cada estudiante elija uno (o que trabajen en parejas). Todos deberían intentar al menos el fácil. Soluciones: Fácil → la siguiente diapositiva. Medio → dos rombos encadenados: “¿Es viernes?” SÍ → Pizza; NO → “¿Es lunes?” SÍ → Pasta; NO → Ensalada (igual que el semáforo). Reto → “¿Menos de 20%?” NO → no hace nada; SÍ → Activa ahorro → “¿Menos de 5%?” SÍ → Muestra alerta; NO → nada. Es un SI dentro de otro SI. Al terminar, intercambien cuadernos y revisen la lista de abajo.</aside>
+</section>
+<section id="ex2-solution" class="paper">
+<div class="head rise" style="--i:0">
+<p class="eyebrow">Ejercicio 2 · la montaña rusa</p>
+<h2 class="title">Una posible solución</h2>
+</div>
+<!-- A 0,256,240,96  D 320,224,480,160  Y 900,40,330,120  N 900,448,330,120  J 1340,256,300,96 -->
+<div class="dg" style="width:1664px; height:580px">
+<div class="n oval ab pop" style="--i:1; left:0px; top:256px; width:240px; height:96px"><p>Hago fila</p></div>
+<x-shape kind="diamond" class="dia ab fade" style="--i:2; left:320px; top:224px; width:480px; height:160px"></x-shape>
+<p class="dq ab fade" style="--i:2; left:320px; top:284px; width:480px">¿Mido ≥ 120 cm?</p>
+<div class="n ab pop" style="--i:3; left:900px; top:40px; width:330px; height:120px"><p>¡Subo a la montaña rusa!</p></div>
+<div class="n ab pop" style="--i:4; left:900px; top:448px; width:330px; height:120px"><p>Me dan un helado</p></div>
+<div class="n oval ab pop" style="--i:5; left:1340px; top:256px; width:300px; height:96px"><p>Me voy feliz</p></div>
+<x-connector class="c fade" style="--i:2" x1="240" y1="304" x2="320" y2="304"></x-connector>
+<x-connector class="c blue fade" style="--i:3" x1="560" y1="224" x2="900" y2="100" route="vh"></x-connector>
+<x-connector class="c blue fade" style="--i:4" x1="560" y1="384" x2="900" y2="508" route="vh"></x-connector>
+<x-connector class="c fade" style="--i:5" x1="1230" y1="100" x2="1490" y2="256" route="hv"></x-connector>
+<x-connector class="c fade" style="--i:5" x1="1230" y1="508" x2="1490" y2="352" route="hv"></x-connector>
+<p class="yes ab fade" style="--i:3; left:600px; top:120px; width:76px">SÍ</p>
+<p class="no ab fade" style="--i:4; left:600px; top:444px; width:76px">NO</p>
+<p class="hand ab rise" style="--i:6; left:0px; top:10px; width:520px">Tu dibujo puede verse distinto: lo que importa es la lógica.</p>
+</div>
+<aside class="notes">Muestren la solución y pidan que comparen. Errores comunes: (1) poner la pregunta en un rectángulo en vez de un rombo; (2) olvidar etiquetar SÍ y NO; (3) escribir “¿Cuánto mides?” en lugar de una pregunta de sí o no. Ojo con “al menos 120”: quien mide exactamente 120 cm SÍ puede subir. Por eso usamos ≥ (mayor o igual).</aside>
+</section>
+<section id="bridge" class="accent center" data-transition="fade">
+<p class="eyebrow rise" style="--i:0">La gran idea</p>
+<h1 class="big rise" style="--i:1">SI pregunta una vez.<br>MIENTRAS sigue<br>preguntando.</h1>
+<p class="rise" style="--i:2; font-size:44px; font-weight:500; color:#3A2410; max-width:1300px">Ahora vienen los bucles: hacer algo una y otra vez, hasta que llegue el momento de parar.</p>
+<aside class="notes">Momento de transición. Lean la frase en voz alta. Un SI hace la pregunta una sola vez y elige un camino. Un MIENTRAS hace la pregunta, actúa, y vuelve a preguntar… una y otra vez, hasta que la respuesta cambia.</aside>
+</section>
+<section id="while-intro" class="center" style="gap:24px">
+<svg class="bg" aria-label="" width="1920" height="1080" viewBox="0 0 1920 1080"><defs><pattern id="dots-w" width="48" height="48" patternUnits="userSpaceOnUse"><circle cx="24" cy="24" r="2" fill="#2A2D40"/></pattern></defs><rect width="1920" height="1080" fill="url(#dots-w)"/></svg>
+<svg class="ab fade" style="--i:1; left:1240px; top:280px" aria-label="Un círculo con flecha: algo que da vueltas una y otra vez" width="520" height="520" viewBox="0 0 520 520">
+<defs><marker id="hw" orient="auto" markerWidth="5" markerHeight="5" refX="2" refY="2" overflow="visible"><path d="M0 0 L4 2 L0 4 Z" fill="#FF9F43" stroke="none"/></marker></defs>
+<circle cx="260" cy="260" r="200" fill="#3A2614" stroke="none"/>
+<path d="M260 60 A200 200 0 1 1 86.8 160" fill="none" stroke="#FF9F43" stroke-width="10" stroke-linecap="round" marker-end="url(#hw)"/>
+<circle cx="260" cy="60" r="18" fill="#F4F0E6"><animateMotion dur="8s" repeatCount="indefinite" path="M0 0 A200 200 0 1 1 0 400 A200 200 0 1 1 0 0"/></circle>
+</svg>
+<p class="eyebrow lp rise" style="--i:0">Parte 2 · en inglés: <b>while</b></p>
+<p class="mega t-lp rise" style="--i:1; font-size:180px; letter-spacing:-6px">MIENTRAS…</p>
+<h2 class="title rise" style="--i:2">Repetir cosas</h2>
+<p class="soft rise" style="--i:3; max-width:980px">Hazlo otra vez… y otra… y otra, hasta que la respuesta cambie.</p>
+<aside class="notes">Segunda gran idea: el bucle MIENTRAS (en código será “while”). Pregunten: “¿Qué cosas repiten todos los días?” Respuestas típicas: masticar mientras hay comida en la boca, caminar mientras no llego, cepillarse mientras los dientes no están limpios. Todas tienen una acción que se repite y una pregunta que dice cuándo parar.</aside>
+</section>
+<section id="shampoo">
+<div class="head rise" style="--i:0">
+<p class="eyebrow lp">Un problema famoso</p>
+<h2 class="title">“Enjabona. Enjuaga. Repite.”</h2>
+</div>
+<div class="row" style="gap:72px; align-items:stretch">
+<div class="card lp rise" style="--i:1; width:520px; flex-shrink:0; border-radius:56px; padding:48px; gap:24px; background:#3A2614">
+<p class="t-lp" style="font-family:'Bricolage Grotesque', sans-serif; font-size:44px; font-weight:800; letter-spacing:6px; text-align:center">CHAMPÚ</p>
+<hr style="border-top:3px solid #FF9F43">
+<p class="sm soft" style="letter-spacing:2px; text-transform:uppercase">Modo de uso</p>
+<div class="step"><p class="num lp">1</p><p>Enjabona</p></div>
+<div class="step"><p class="num lp">2</p><p>Enjuaga</p></div>
+<div class="step"><p class="num lp">3</p><p>Repite</p></div>
+</div>
+<div class="col" style="flex:1; gap:28px">
+<p class="rise" style="--i:2">Una persona se lava el pelo dos veces y para.<br><span class="soft">Una computadora lo seguiría al pie de la letra:</span></p>
+<div class="row" style="gap:14px; flex-wrap:wrap">
+<p class="chip pop" style="--i:3">Lavada 1</p>
+<p class="chip pop" style="--i:4">Lavada 2</p>
+<p class="chip pop" style="--i:5">Lavada 3</p>
+<p class="chip pop" style="--i:6">Lavada 4</p>
+<p class="chip pop" style="--i:7">…</p>
+<p class="chip pop t-lp" style="--i:8">Lavada 999 999</p>
+</div>
+<p class="hand rise" style="--i:8">¡Nunca termina! Nadie le dijo cuándo parar.</p>
+<div class="band rise" style="--i:9">
+<x-icon name="Lightbulb" style="width:56px; height:56px; color:#FF9F43; flex-shrink:0"></x-icon>
+<p style="font-weight:700">Todo bucle necesita una pregunta que le diga cuándo parar.</p>
+</div>
+</div>
+</div>
+<aside class="notes">Cuenten el chiste del champú: las instrucciones dicen “repite”, pero no dicen cuántas veces. Una persona usa el sentido común; una computadora no tiene sentido común, así que se quedaría lavándose el pelo para siempre. Pregunta: ¿cómo arreglarían las instrucciones? Respuestas buenas: “Repite mientras el pelo siga sucio” o “Repite una sola vez”. ¡Eso es exactamente un bucle MIENTRAS!</aside>
+</section>
+<section id="while-anatomy">
+<div class="head rise" style="--i:0">
+<p class="eyebrow lp">Anatomía de un bucle</p>
+<h2 class="title">Un bucle es un SI que regresa</h2>
+</div>
+<div class="row" style="gap:64px; align-items:flex-start">
+<!-- S 250,0,400,90  D 250,170,400,160  A 260,440,380,110  E 680,440,220,110 -->
+<div class="dg" style="width:900px; height:640px">
+<svg class="ab" style="left:0; top:0" aria-label="Un punto recorre el bucle: de la pregunta a la acción y de vuelta a la pregunta" width="900" height="640" viewBox="0 0 900 640">
+<circle cx="450" cy="330" r="14" fill="#FF9F43"><animateMotion dur="5s" repeatCount="indefinite" path="M0 0 L0 165 L-350 165 L-350 -80 L-200 -80 L0 -80 Z"/></circle>
+</svg>
+<div class="n oval ab pop" style="--i:1; left:250px; top:0px; width:400px; height:90px"><p>Me siento a comer</p></div>
+<x-shape kind="diamond" class="dia lp ab fade" style="--i:2; left:250px; top:170px; width:400px; height:160px"></x-shape>
+<p class="dq ab fade" style="--i:2; left:250px; top:230px; width:400px">¿Tengo hambre?</p>
+<div class="n lp ab pop" style="--i:3; left:260px; top:440px; width:380px; height:110px"><p>Doy una mordida</p></div>
+<div class="n oval ab pop" style="--i:4; left:680px; top:440px; width:220px; height:110px"><p>Dejo de comer</p></div>
+<x-connector class="c fade" style="--i:2" x1="450" y1="90" x2="450" y2="170"></x-connector>
+<x-connector class="c lp fade" style="--i:3" x1="450" y1="330" x2="450" y2="440"></x-connector>
+<x-connector class="c lp fade" style="--i:4" x1="260" y1="495" x2="100" y2="495" head="none"></x-connector>
+<x-connector class="c lp fade" style="--i:4" x1="100" y1="495" x2="100" y2="250" head="none"></x-connector>
+<x-connector class="c lp fade" style="--i:4" x1="100" y1="250" x2="250" y2="250"></x-connector>
+<x-connector class="c fade" style="--i:4" x1="650" y1="250" x2="790" y2="440" route="hv"></x-connector>
+<p class="yes ab fade" style="--i:3; left:466px; top:362px; width:76px">SÍ</p>
+<p class="no ab fade" style="--i:4; left:670px; top:190px; width:76px">NO</p>
+<p class="hand ab rise" style="--i:5; left:20px; top:570px; width:620px">¡Vuelve a preguntar!</p>
+</div>
+<div class="col" style="width:700px; gap:20px">
+<div class="card rise" style="--i:2; padding:28px 32px; flex-direction:row; gap:24px; align-items:flex-start">
+<p class="num lp">1</p><p><b>Haz la pregunta.</b> <span class="soft">¿Tengo hambre?</span></p>
+</div>
+<div class="card rise" style="--i:3; padding:28px 32px; flex-direction:row; gap:24px; align-items:flex-start">
+<p class="num lp">2</p><p><b>¿SÍ?</b> Haz la acción… <span class="t-lp">y regresa a la pregunta.</span></p>
+</div>
+<div class="card rise" style="--i:4; padding:28px 32px; flex-direction:row; gap:24px; align-items:flex-start">
+<p class="num lp">3</p><p><b>¿NO?</b> Sal del bucle y sigue con lo demás.</p>
+</div>
+<div class="band rise" style="--i:5">
+<p style="font-weight:700">La flecha naranja es lo que lo convierte en bucle.</p>
+</div>
+</div>
+</div>
+<aside class="notes">Sigan el punto naranja con la mirada: pregunta → mordida → de vuelta a la pregunta. Fíjense que el diagrama es casi igual al de un SI; la única diferencia es la flecha que regresa. En palabras: MIENTRAS tenga hambre, doy una mordida. Pregunta: si me siento sin hambre, ¿cuántas mordidas doy? Respuesta: cero. El bucle puede ejecutarse cero veces.</aside>
+</section>
+<section id="soup-trace" class="paper" style="gap:32px">
+<div class="head rise" style="--i:0">
+<p class="eyebrow lp">Seguir un bucle paso a paso</p>
+<h2 class="title">Ejecutemos el bucle a mano</h2>
+</div>
+<p class="rise" style="--i:1"><b class="t-lp">MIENTRAS</b> quede sopa en el plato → tomo una cucharada. <span class="soft">El plato empieza con 3 cucharadas.</span></p>
+<div class="col" style="gap:12px">
+<div class="trow th rise" style="--i:2"><p>Vuelta</p><p>¿Queda sopa?</p><p>Entonces…</p><p>Cucharadas que quedan</p></div>
+<div class="trow fragment"><p>1</p><p><b>SÍ</b> (hay 3)</p><p>tomo una cucharada</p><p>2</p></div>
+<div class="trow fragment"><p>2</p><p><b>SÍ</b> (hay 2)</p><p>tomo una cucharada</p><p>1</p></div>
+<div class="trow fragment"><p>3</p><p><b>SÍ</b> (hay 1)</p><p>tomo una cucharada</p><p>0</p></div>
+<div class="trow last fragment"><p>4</p><p><b>NO</b> (hay 0)</p><p class="t-lp" style="font-weight:700">salgo del bucle</p><p>0 · ¡listo!</p></div>
+</div>
+<p class="hand fragment">Preguntamos 4 veces, pero comimos solo 3. La última pregunta es la que nos deja salir.</p>
+<aside class="notes">Hagan esto en el pizarrón como una tabla; cada clic revela una vuelta. Antes de cada clic, pregunten a la clase: “¿Queda sopa? ¿Qué hacemos?”. La idea clave aparece al final: la pregunta se hace una vez más que la acción, porque la última respuesta (NO) es la que nos saca del bucle. A esta técnica se le llama “prueba de escritorio”; los programadores la usan todo el tiempo.</aside>
+</section>
+<section id="infinite">
+<div class="head rise" style="--i:0">
+<p class="eyebrow lp">Cuidado: bucle infinito</p>
+<h2 class="title">El bucle que nunca termina</h2>
+</div>
+<div class="grid2">
+<div class="card lp rise" style="--i:1; gap:20px">
+<p class="t-lp" style="font-family:'Bricolage Grotesque', sans-serif; font-size:120px; font-weight:800; line-height:1">∞</p>
+<h3>Nunca termina</h3>
+<p><b class="t-lp">MIENTRAS</b> el vaso no esté lleno → <b>espero</b>.</p>
+<p class="soft">Nadie sirve agua. El vaso sigue vacío. Esperas… para siempre.</p>
+</div>
+<div class="card blue rise" style="--i:2; gap:20px">
+<div style="height:120px; display:flex; align-items:center"><x-icon name="CheckCircle" style="width:104px; height:104px; color:#6EA8FF"></x-icon></div>
+<h3>Sí termina</h3>
+<p><b class="t-lp">MIENTRAS</b> el vaso no esté lleno → <b>sirvo un poco de agua</b>.</p>
+<p class="soft">En cada vuelta el vaso se llena más, así que algún día la respuesta será NO.</p>
+</div>
+</div>
+<div class="band rise" style="--i:3">
+<x-icon name="Key" style="width:56px; height:56px; color:#FF9F43; flex-shrink:0"></x-icon>
+<p><b>Regla de oro:</b> algo dentro del bucle debe cambiar la respuesta de la pregunta.</p>
+</div>
+<aside class="notes">El error más famoso de la programación: el bucle infinito. Pasa cuando nada de lo que hacemos dentro del bucle cambia la respuesta de la pregunta. En el ejemplo malo, esperar no llena el vaso. En el bueno, servir agua sí lo llena poco a poco. Anécdota: cuando un programa se “congela”, muchas veces es por un bucle infinito.</aside>
+</section>
+<section id="if-vs-while">
+<div class="head rise" style="--i:0">
+<p class="eyebrow">Lado a lado</p>
+<h2 class="title">SI vs MIENTRAS: ¿qué cambia?</h2>
+</div>
+<div class="row" style="gap:144px">
+<div class="col" style="width:760px; gap:16px">
+<!-- D 180,0,400,150  A 230,220,300,100  E 230,400,300,90 -->
+<div class="dg" style="width:760px; height:490px">
+<p class="ab rise t-if" style="--i:1; left:0px; top:0px; width:170px; height:56px; font-family:'Bricolage Grotesque', sans-serif; font-size:36px; font-weight:800">SI</p>
+<x-shape kind="diamond" class="dia ab fade" style="--i:1; left:180px; top:0px; width:400px; height:150px"></x-shape>
+<p class="dq ab fade" style="--i:1; left:180px; top:55px; width:400px">¿Pregunta?</p>
+<div class="n ab pop" style="--i:2; left:230px; top:220px; width:300px; height:100px"><p>Haz algo</p></div>
+<div class="n oval ab pop" style="--i:3; left:230px; top:400px; width:300px; height:90px"><p>Sigue</p></div>
+<x-connector class="c blue fade" style="--i:2" x1="380" y1="150" x2="380" y2="220"></x-connector>
+<x-connector class="c fade" style="--i:3" x1="380" y1="320" x2="380" y2="400"></x-connector>
+<x-connector class="c fade" style="--i:3" x1="580" y1="75" x2="680" y2="75" head="none"></x-connector>
+<x-connector class="c fade" style="--i:3" x1="680" y1="75" x2="680" y2="445" head="none"></x-connector>
+<x-connector class="c fade" style="--i:3" x1="680" y1="445" x2="530" y2="445"></x-connector>
+<p class="yes ab fade" style="--i:2; left:396px; top:166px; width:76px">SÍ</p>
+<p class="no ab fade" style="--i:3; left:596px; top:22px; width:76px">NO</p>
+</div>
+<p class="rise" style="--i:4">Hace la acción <b class="t-if">una vez</b>… o ninguna.</p>
+</div>
+<div class="col" style="width:760px; gap:16px">
+<!-- D 180,0,400,150  A 230,220,300,100  E 230,400,300,90 -->
+<div class="dg" style="width:760px; height:490px">
+<p class="ab rise t-lp" style="--i:1; left:0px; top:0px; width:200px; height:56px; font-family:'Bricolage Grotesque', sans-serif; font-size:36px; font-weight:800">MIENTRAS</p>
+<x-shape kind="diamond" class="dia lp ab fade" style="--i:1; left:180px; top:0px; width:400px; height:150px"></x-shape>
+<p class="dq ab fade" style="--i:1; left:180px; top:55px; width:400px">¿Pregunta?</p>
+<div class="n lp ab pop" style="--i:2; left:230px; top:220px; width:300px; height:100px"><p>Haz algo</p></div>
+<div class="n oval ab pop" style="--i:3; left:230px; top:400px; width:300px; height:90px"><p>Sigue</p></div>
+<x-connector class="c lp fade" style="--i:2" x1="380" y1="150" x2="380" y2="220"></x-connector>
+<x-connector class="c lp fade" style="--i:3" x1="230" y1="270" x2="100" y2="270" head="none"></x-connector>
+<x-connector class="c lp fade" style="--i:3" x1="100" y1="270" x2="100" y2="75" head="none"></x-connector>
+<x-connector class="c lp fade" style="--i:3" x1="100" y1="75" x2="180" y2="75"></x-connector>
+<x-connector class="c fade" style="--i:3" x1="580" y1="75" x2="680" y2="75" head="none"></x-connector>
+<x-connector class="c fade" style="--i:3" x1="680" y1="75" x2="680" y2="445" head="none"></x-connector>
+<x-connector class="c fade" style="--i:3" x1="680" y1="445" x2="530" y2="445"></x-connector>
+<p class="yes ab fade" style="--i:2; left:396px; top:166px; width:76px">SÍ</p>
+<p class="no ab fade" style="--i:3; left:596px; top:22px; width:76px">NO</p>
+<p class="hand ab rise" style="--i:4; left:0px; top:300px; width:220px">¡otra vez!</p>
+</div>
+<p class="rise" style="--i:4">Repite la acción <b class="t-lp">mientras</b> la respuesta sea SÍ.</p>
+</div>
+</div>
+<aside class="notes">Pidan a la clase que encuentre la diferencia entre los dos diagramas, como en el juego de “encuentra las diferencias”. Solo hay una: la flecha naranja que regresa de la acción a la pregunta. En el SI, después de actuar seguimos hacia abajo. En el MIENTRAS, después de actuar volvemos a preguntar. Por eso el SI actúa como máximo una vez, y el MIENTRAS puede actuar cero, una o muchas veces.</aside>
+</section>
+<section id="counting" class="paper">
+<div class="head rise" style="--i:0">
+<p class="eyebrow lp">Un bucle con contador · “haz 5 saltos”</p>
+<h2 class="title">Los bucles pueden contar</h2>
+</div>
+<!-- S 0,120,300,110  D 400,95,480,160  A 1000,110,380,130  E 1420,120,220,110 -->
+<div class="dg" style="width:1664px; height:400px">
+<div class="n ab pop" style="--i:1; left:0px; top:120px; width:300px; height:110px"><p>Contador = 0</p></div>
+<x-shape kind="diamond" class="dia lp ab fade" style="--i:2; left:400px; top:95px; width:480px; height:160px"></x-shape>
+<p class="dq ab fade" style="--i:2; left:400px; top:155px; width:480px">¿Contador &lt; 5?</p>
+<div class="n lp ab pop" style="--i:3; left:1000px; top:110px; width:380px; height:130px"><p>¡Salto! Y le sumo 1 al contador</p></div>
+<div class="n oval ab pop" style="--i:4; left:1420px; top:120px; width:220px; height:110px"><p>¡A descansar!</p></div>
+<x-connector class="c fade" style="--i:2" x1="300" y1="175" x2="400" y2="175"></x-connector>
+<x-connector class="c lp fade" style="--i:3" x1="880" y1="175" x2="1000" y2="175"></x-connector>
+<x-connector class="c lp fade" style="--i:4" x1="1190" y1="240" x2="1190" y2="330" head="none"></x-connector>
+<x-connector class="c lp fade" style="--i:4" x1="1190" y1="330" x2="640" y2="330" head="none"></x-connector>
+<x-connector class="c lp fade" style="--i:4" x1="640" y1="330" x2="640" y2="255"></x-connector>
+<x-connector class="c fade" style="--i:4" x1="640" y1="95" x2="640" y2="30" head="none"></x-connector>
+<x-connector class="c fade" style="--i:4" x1="640" y1="30" x2="1530" y2="30" head="none"></x-connector>
+<x-connector class="c fade" style="--i:4" x1="1530" y1="30" x2="1530" y2="120"></x-connector>
+<p class="yes ab fade" style="--i:3; left:900px; top:120px; width:76px">SÍ</p>
+<p class="no ab fade" style="--i:4; left:656px; top:44px; width:76px">NO</p>
+<p class="hand ab rise" style="--i:5; left:680px; top:346px; width:560px">y vuelve a preguntar</p>
+</div>
+<div class="row rise" style="--i:6; gap:16px; align-items:center">
+<p style="font-weight:700; margin-right:8px">Contador:</p>
+<p class="chip pop" style="--i:6">0</p>
+<p class="chip pop" style="--i:7">1</p>
+<p class="chip pop" style="--i:7">2</p>
+<p class="chip pop" style="--i:8">3</p>
+<p class="chip pop" style="--i:8">4</p>
+<p class="chip pop t-lp" style="--i:9">5 → NO, ¡fin!</p>
+<p class="soft" style="margin-left:16px">5 saltos exactos.</p>
+</div>
+<aside class="notes">Un contador es como una cajita con un número adentro. Empieza en 0. Cada vez que saltamos, le sumamos 1. Cuando llega a 5, la pregunta “¿Contador menor que 5?” responde NO y salimos. Hagan la actividad: toda la clase de pie, una persona es “la computadora” y va diciendo el contador en voz alta; los demás saltan solo cuando la respuesta es SÍ. Pregunta: ¿qué pasaría si olvidamos “sumar 1”? (Bucle infinito: ¡saltarían para siempre!)</aside>
+</section>
+<section id="ex3-cookies" class="paper">
+<div class="head rise" style="--i:0">
+<p class="expill">Mini ejercicio 3 · 5 minutos</p>
+<h2 class="title">Sé el bucle</h2>
+</div>
+<div class="row" style="gap:48px; align-items:flex-start">
+<div class="card lp rise" style="--i:1; width:760px; flex-shrink:0; gap:22px">
+<h3>El plan</h3>
+<div class="step"><p class="num">1</p><p>Pon 10 galletas en el frasco.</p></div>
+<div class="step"><p class="num lp">2</p><p><b class="t-lp">MIENTRAS</b> haya más de 4 galletas en el frasco:</p></div>
+<div class="step" style="margin-left:80px"><p class="num lp">3</p><p>come 2 galletas y di “¡ñam!”</p></div>
+<div class="step"><p class="num">4</p><p>Di “¡Estoy lleno!”</p></div>
+</div>
+<div class="col" style="flex:1; gap:20px">
+<div class="card rise" style="--i:2; padding:28px 32px; gap:10px">
+<p><b>a)</b> ¿Cuántas veces dices “¡ñam!”?</p>
+<p class="fragment t-lp" style="font-weight:700">3 veces: 10 → 8 → 6 → 4</p>
+</div>
+<div class="card rise" style="--i:3; padding:28px 32px; gap:10px">
+<p><b>b)</b> ¿Cuántas galletas quedan al final?</p>
+<p class="fragment t-lp" style="font-weight:700">4. Y 4 no es MÁS de 4, así que el bucle para.</p>
+</div>
+<div class="card rise" style="--i:4; padding:28px 32px; gap:10px">
+<p><b>c)</b> ¿Y si el paso 3 dijera “mira las galletas”?</p>
+<p class="fragment t-lp" style="font-weight:700">¡Nunca termina! Mirar no cambia la respuesta.</p>
+</div>
+</div>
+</div>
+<aside class="notes">Que resuelvan en parejas haciendo una tabla como la de la sopa (vuelta, ¿más de 4?, acción, galletas que quedan). Cada clic revela una respuesta. a) 3 veces: 10→8, 8→6, 6→4. b) Quedan 4: con 4 galletas la pregunta “¿más de 4?” da NO. c) Bucle infinito, porque mirar las galletas no cambia cuántas hay. Extra: que dibujen el plan como diagrama de flujo.</aside>
+</section>
+<section id="ex4-bugs">
+<div class="head rise" style="--i:0">
+<p class="expill ondark">Mini ejercicio 4 · 4 minutos</p>
+<h2 class="title">¿Cuáles bucles nunca paran?</h2>
+</div>
+<div class="grid2" style="gap:28px">
+<div class="card rise" style="--i:1; gap:20px; padding:32px 40px">
+<p><b class="t-lp">MIENTRAS</b> la tina no esté llena: dejo la llave abierta.</p>
+<div class="step fragment" style="gap:16px"><x-icon name="CheckCircle" style="width:40px; height:40px; color:#6EA8FF; flex-shrink:0"></x-icon><p class="t-if"><b>Para.</b> El agua sube hasta llenarla.</p></div>
+</div>
+<div class="card rise" style="--i:2; gap:20px; padding:32px 40px">
+<p>El contador empieza en 1. <b class="t-lp">MIENTRAS</b> el contador sea mayor que 0: le sumo 1.</p>
+<div class="step fragment" style="gap:16px"><x-icon name="Warning" style="width:40px; height:40px; color:#FF9F43; flex-shrink:0"></x-icon><p class="t-lp"><b>Nunca para.</b> El contador solo crece: 2, 3, 4…</p></div>
+</div>
+<div class="card rise" style="--i:3; gap:20px; padding:32px 40px">
+<p><b class="t-lp">MIENTRAS</b> la planta tenga sed: miro la planta.</p>
+<div class="step fragment" style="gap:16px"><x-icon name="Warning" style="width:40px; height:40px; color:#FF9F43; flex-shrink:0"></x-icon><p class="t-lp"><b>Nunca para.</b> Mirarla no la riega.</p></div>
+</div>
+<div class="card rise" style="--i:4; gap:20px; padding:32px 40px">
+<p><b class="t-lp">MIENTRAS</b> haya platos sucios: lavo un plato.</p>
+<div class="step fragment" style="gap:16px"><x-icon name="CheckCircle" style="width:40px; height:40px; color:#6EA8FF; flex-shrink:0"></x-icon><p class="t-if"><b>Para.</b> En cada vuelta hay un plato sucio menos.</p></div>
+</div>
+</div>
+<aside class="notes">Para cada tarjeta, la clase vota levantando la mano: ¿para o nunca para? Luego revelen con un clic. La pregunta que deben hacerse siempre: “¿Lo que hago dentro del bucle acerca la respuesta a NO?”. Tina: sí, el agua sube. Contador: no; lo aleja, porque crece y siempre será mayor que 0. Planta: no, mirar no cambia nada. Platos: sí, cada vez hay uno menos. Pregunta extra: ¿cómo arreglarían los dos bucles infinitos? (Restar 1 en vez de sumar; regar la planta en vez de mirarla.)</aside>
+</section>
+<section id="ex5-game">
+<div class="head rise" style="--i:0">
+<p class="expill ondark">Reto final · 10 minutos · en parejas</p>
+<h2 class="title">El juego de adivinar el número</h2>
+</div>
+<div class="row" style="gap:56px; align-items:flex-start">
+<div class="col" style="width:940px; gap:26px">
+<div class="step rise" style="--i:1; align-items:flex-start"><p class="num">1</p><p>A piensa en secreto un número del 1 al 100.</p></div>
+<div class="step rise" style="--i:2; align-items:flex-start"><p class="num">2</p><p>B intenta adivinarlo.</p></div>
+<div class="step rise" style="--i:3; align-items:flex-start"><p class="num lp">3</p><p><b class="t-lp">MIENTRAS</b> B no acierte: <b class="t-if">SI</b> el número que dijo es muy alto, A dice “más bajo”; si no, dice “más alto”. B vuelve a intentar.</p></div>
+<div class="step rise" style="--i:4; align-items:flex-start"><p class="num">4</p><p>Cuando B acierta: ¡a celebrar! Cambien de papel.</p></div>
+</div>
+<div class="card blue rise" style="--i:5; flex:1; gap:20px">
+<h3>Su misión</h3>
+<p class="soft">Jueguen 2 rondas.</p>
+<p class="soft">Cuenten los intentos: es el número de vueltas del bucle.</p>
+<p>Dibujen el diagrama: necesita <b class="t-lp">1 bucle</b> y <b class="t-if">1 SI</b> adentro.</p>
+<p class="hand blue">Extra: ¿cuál es el mejor primer intento? (Pista: 50)</p>
+</div>
+</div>
+<aside class="notes">Este reto combina todo: un bucle (seguir adivinando mientras no acierte) con un SI adentro (¿muy alto o muy bajo?). Dejen que jueguen primero y luego dibujen. La solución está en la siguiente diapositiva. Sobre el extra: empezar en 50 elimina la mitad de los números con cada pista; así siempre se adivina en 7 intentos o menos. Es una idea famosa en computación llamada “búsqueda binaria”.</aside>
+</section>
+<section id="ex5-solution">
+<div class="head rise" style="--i:0">
+<p class="eyebrow lp">Solución del reto final</p>
+<h2 class="title">El juego, como diagrama de flujo</h2>
+</div>
+<!-- S 0,40,320,96  G 420,33,300,110  D1 820,8,340,160  W 1300,40,320,96  D2 820,260,340,160  H 1300,285,320,110  L 840,490,300,100 -->
+<div class="dg" style="width:1664px; height:640px">
+<div class="n oval ab pop" style="--i:1; left:0px; top:40px; width:320px; height:96px"><p>A elige un número</p></div>
+<div class="n lp ab pop" style="--i:2; left:420px; top:33px; width:300px; height:110px"><p>B adivina</p></div>
+<x-shape kind="diamond" class="dia lp ab fade" style="--i:3; left:820px; top:8px; width:340px; height:160px"></x-shape>
+<p class="dq ab fade" style="--i:3; left:820px; top:68px; width:340px">¿Acertó?</p>
+<div class="n oval ab pop" style="--i:4; left:1300px; top:40px; width:320px; height:96px"><p>¡A celebrar!</p></div>
+<x-shape kind="diamond" class="dia ab fade" style="--i:4; left:820px; top:260px; width:340px; height:160px"></x-shape>
+<p class="dq ab fade" style="--i:4; left:820px; top:320px; width:340px">¿Muy alto?</p>
+<div class="n ab pop" style="--i:5; left:1300px; top:285px; width:320px; height:110px"><p>A dice “más bajo”</p></div>
+<div class="n ab pop" style="--i:5; left:840px; top:490px; width:300px; height:100px"><p>A dice “más alto”</p></div>
+<x-connector class="c fade" style="--i:2" x1="320" y1="88" x2="420" y2="88"></x-connector>
+<x-connector class="c lp fade" style="--i:3" x1="720" y1="88" x2="820" y2="88"></x-connector>
+<x-connector class="c fade" style="--i:4" x1="1160" y1="88" x2="1300" y2="88"></x-connector>
+<x-connector class="c lp fade" style="--i:4" x1="990" y1="168" x2="990" y2="260"></x-connector>
+<x-connector class="c blue fade" style="--i:5" x1="1160" y1="340" x2="1300" y2="340"></x-connector>
+<x-connector class="c blue fade" style="--i:5" x1="990" y1="420" x2="990" y2="490"></x-connector>
+<x-connector class="c lp fade" style="--i:6" x1="840" y1="540" x2="570" y2="540" head="none"></x-connector>
+<x-connector class="c lp fade" style="--i:6" x1="1460" y1="395" x2="1460" y2="620" head="none"></x-connector>
+<x-connector class="c lp fade" style="--i:6" x1="1460" y1="620" x2="570" y2="620" head="none"></x-connector>
+<x-connector class="c lp fade" style="--i:6" x1="570" y1="620" x2="570" y2="540" head="none"></x-connector>
+<x-connector class="c lp fade" style="--i:6" x1="570" y1="540" x2="570" y2="143"></x-connector>
+<p class="yes ab fade" style="--i:4; left:1190px; top:30px; width:76px">SÍ</p>
+<p class="no ab fade" style="--i:4; left:1006px; top:192px; width:76px">NO</p>
+<p class="yes ab fade" style="--i:5; left:1190px; top:282px; width:76px">SÍ</p>
+<p class="no ab fade" style="--i:5; left:1006px; top:436px; width:76px">NO</p>
+</div>
+<aside class="notes">Recorran el diagrama con el dedo. Lo naranja es el bucle: “B adivina” → “¿Acertó?” → si NO, damos una pista y volvemos a “B adivina”. Lo azul es el SI que vive dentro del bucle: decide qué pista dar. La única salida del bucle es acertar. Pregunten: ¿qué hace que este bucle termine algún día? (Cada pista acerca a B al número, así que la respuesta a “¿Acertó?” termina siendo SÍ.) Acepten diagramas distintos si la lógica es correcta.</aside>
+</section>
+<section id="recap">
+<div class="head rise" style="--i:0">
+<p class="eyebrow">Repaso</p>
+<h2 class="title">Lo que aprendimos hoy</h2>
+</div>
+<div class="grid3">
+<div class="card rise" style="--i:1">
+<x-icon name="Book" style="width:56px; height:56px; color:#F4F0E6"></x-icon>
+<h3>Diagramas de flujo</h3>
+<p class="soft">Óvalo: inicio y fin. Rectángulo: acción. Rombo: pregunta. Flecha: lo que sigue.</p>
+</div>
+<div class="card blue rise" style="--i:2">
+<x-icon name="Search" style="width:56px; height:56px; color:#6EA8FF"></x-icon>
+<h3 class="t-if">SI (if)</h3>
+<p class="soft">Una pregunta de sí o no elige el camino. Se puede encadenar y combinar con Y / O.</p>
+</div>
+<div class="card lp rise" style="--i:3">
+<x-icon name="Activity" style="width:56px; height:56px; color:#FF9F43"></x-icon>
+<h3 class="t-lp">MIENTRAS (while)</h3>
+<p class="soft">Repite mientras la respuesta sea SÍ. Algo adentro debe cambiar la respuesta, o nunca para.</p>
+</div>
+</div>
+<div class="band rise" style="--i:4">
+<x-icon name="GraduationCap" style="width:56px; height:56px; color:#FF9F43; flex-shrink:0"></x-icon>
+<p><b>Boleto de salida:</b> dibuja el diagrama de flujo de lavarte los dientes. Usa un <b class="t-if">SI</b> y un <b class="t-lp">MIENTRAS</b>.</p>
+</div>
+<p class="hand blue rise" style="--i:5">Próxima clase: convertimos estos diagramas en código de verdad.</p>
+<aside class="notes">Cierre. Repasen las tres tarjetas preguntando a la clase en vez de leerlas. Boleto de salida: antes de irse, cada estudiante entrega un diagrama de lavarse los dientes. Ejemplo de respuesta: “¿Tengo pasta? NO → pido pasta” (SI) y “MIENTRAS los dientes no estén limpios → cepillo” (MIENTRAS). Les sirve para ver quién entendió y quién necesita repaso.</aside>
+</section>
+</div>
+</div>
+<script src="components.js"></script>
+<script src="vendor/reveal/reveal.js"></script>
+<script src="vendor/reveal/plugin/notes/notes.js"></script>
+<script>
+Reveal.initialize({
+  width: 1920,
+  height: 1080,
+  margin: 0,
+  center: false,
+  display: 'flex',
+  hash: true,
+  transition: 'fade',
+  plugins: [RevealNotes],
+});
+</script>
+</body>
+</html>

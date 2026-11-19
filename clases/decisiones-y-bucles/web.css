@@ -1,0 +1,27 @@
+/* Ajustes para mostrar las diapositivas (deck.css) dentro de reveal.js */
+
+html, body { background: #14151D; }
+.reveal .slides { text-align: left; }
+.reveal .slides > section { height: 1080px; top: 0; }
+.reveal section p, .reveal section h1, .reveal section h2, .reveal section h3 { margin: 0; }
+.reveal section hr { border: 0; margin: 0; }
+.reveal section b { font-weight: 700; }
+
+/* tablas (diapositiva Y / O) */
+.reveal section table { border-collapse: collapse; width: 100%; }
+.reveal section th, .reveal section td { text-align: left; padding: 10px 16px; border-bottom: 2px solid var(--rule); }
+.reveal section th { font-weight: 700; }
+
+/* las animaciones de entrada se reproducen al llegar a la diapositiva */
+.reveal .slides section:not(.present) .rise,
+.reveal .slides section:not(.present) .fade,
+.reveal .slides section:not(.present) .pop { animation: none; }
+
+/* figuras, flechas e íconos (components.js) */
+x-shape, x-icon { display: block; }
+x-shape svg, x-icon svg { display: block; width: 100%; height: 100%; overflow: visible; }
+x-connector { display: block; border-width: 0 !important; border-color: transparent !important; --cw: 4px; }
+x-connector.lp { --cw: 5px; }
+x-connector[x1] { position: absolute; left: 0; top: 0; width: 0; height: 0; }
+x-connector svg { position: absolute; left: 0; top: 0; overflow: visible; }
+x-connector:not([x1]) { position: relative; }
