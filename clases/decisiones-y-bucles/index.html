@@ -230,6 +230,77 @@
 </div>
 <aside class="notes">No todos los SI necesitan un camino de NO. Aquí, si no hay tarea, simplemente nos saltamos el paso. Señalen la línea punteada: es el atajo del NO. Pregunta para la clase: “¿En qué caso se ejecuta ‘Salgo a jugar’?” Respuesta: ¡siempre! Con o sin tarea, ese paso ocurre. Lo único que cambia es si antes hacemos la tarea.</aside>
 </section>
+<section id="else-intro">
+<div class="head rise" style="--i:0">
+<p class="eyebrow">SI NO · en inglés: <b>else</b></p>
+<h2 class="title">SI NO: el plan B</h2>
+</div>
+<div class="row" style="gap:64px; align-items:flex-start">
+<!-- S 300,0,300,80  D 250,130,400,160  Y 0,360,300,110  N 600,360,300,110  E 300,560,300,80 -->
+<div class="dg" style="width:900px; height:640px">
+<div class="n oval ab pop" style="--i:1; left:300px; top:0px; width:300px; height:80px"><p>Voy a la escuela</p></div>
+<x-shape kind="diamond" class="dia ab fade" style="--i:2; left:230px; top:130px; width:440px; height:160px"></x-shape>
+<p class="dq ab fade" style="--i:2; left:230px; top:190px; width:440px">¿Tengo para el bus?</p>
+<div class="n ab pop" style="--i:3; left:0px; top:360px; width:300px; height:110px; gap:16px">
+<svg width="60" height="48" viewBox="0 0 60 48" aria-label="Un bus amarillo" style="flex-shrink:0"><rect x="2" y="4" width="56" height="34" rx="8" fill="#F5D547"/><rect x="8" y="10" width="12" height="11" rx="2" fill="#14151D"/><rect x="24" y="10" width="12" height="11" rx="2" fill="#14151D"/><rect x="40" y="10" width="12" height="11" rx="2" fill="#14151D"/><rect x="2" y="27" width="56" height="4" fill="#E0A82E"/><circle cx="15" cy="40" r="6" fill="#14151D" stroke="#F4F0E6" stroke-width="2"/><circle cx="45" cy="40" r="6" fill="#14151D" stroke="#F4F0E6" stroke-width="2"/></svg>
+<p>Tomo el bus</p></div>
+<div class="n ab pop" style="--i:4; left:600px; top:360px; width:300px; height:110px; gap:16px">
+<svg width="48" height="48" viewBox="0 0 48 48" aria-label="Huellas de pasos" style="flex-shrink:0"><ellipse cx="15" cy="30" rx="7" ry="11" fill="#F4F0E6"/><circle cx="15" cy="15" r="4" fill="#F4F0E6"/><ellipse cx="33" cy="20" rx="7" ry="11" fill="#B4B8CC"/><circle cx="33" cy="5" r="4" fill="#B4B8CC"/></svg>
+<p>Camino</p></div>
+<div class="n oval ab pop" style="--i:5; left:300px; top:560px; width:300px; height:80px"><p>Llego a la escuela</p></div>
+<x-connector class="c fade" style="--i:2" x1="450" y1="80" x2="450" y2="130"></x-connector>
+<x-connector class="c blue fade" style="--i:3" x1="230" y1="210" x2="150" y2="360" route="hv"></x-connector>
+<x-connector class="c blue fade" style="--i:4" x1="670" y1="210" x2="750" y2="360" route="hv"></x-connector>
+<x-connector class="c fade" style="--i:5" x1="150" y1="470" x2="150" y2="515" head="none"></x-connector>
+<x-connector class="c fade" style="--i:5" x1="750" y1="470" x2="750" y2="515" head="none"></x-connector>
+<x-connector class="c fade" style="--i:5" x1="150" y1="515" x2="750" y2="515" head="none"></x-connector>
+<x-connector class="c fade" style="--i:5" x1="450" y1="515" x2="450" y2="560"></x-connector>
+<p class="yes ab fade" style="--i:3; left:166px; top:260px; width:76px">SÍ</p>
+<p class="no ab fade" style="--i:4; left:658px; top:260px; width:76px">NO</p>
+</div>
+<div class="col" style="width:700px; gap:24px">
+<div class="card blue rise" style="--i:2; gap:20px">
+<p class="soft sm" style="letter-spacing:2px; text-transform:uppercase; font-weight:700">En palabras</p>
+<div class="pc">
+<p><span class="kw">SI</span> tengo para el bus:</p>
+<p class="in">tomo el bus</p>
+<p><span class="kw">SI NO:</span></p>
+<p class="in">camino</p>
+</div>
+</div>
+<div class="card rise" style="--i:3; gap:14px">
+<p><b>El SI NO no lleva pregunta.</b> <span class="soft">Es “en cualquier otro caso”.</span></p>
+<p><b>Siempre pasa uno de los dos.</b> <span class="soft">Nunca los dos, nunca ninguno.</span></p>
+</div>
+</div>
+</div>
+<aside class="notes">Comparen con la diapositiva anterior: allí, si la respuesta era NO, no pasaba nada. Ahora el NO tiene su propio camino: el plan B. Eso es el SI NO (en inglés “else”). Detalle importante: el SI NO no hace ninguna pregunta; simplemente atrapa todo lo que no cumplió la condición. Pregunten: ¿puede pasar que tome el bus Y camine? (No, solo uno.) ¿Puede pasar que no haga ninguno? (Tampoco.) Noten la sangría en “En palabras”: lo que va adentro del SI o del SI NO se escribe un poco más a la derecha. En código pasará lo mismo.</aside>
+</section>
+<section id="else-examples" class="paper">
+<div class="head rise" style="--i:0">
+<p class="expill">Mini ejercicio · 3 minutos</p>
+<h2 class="title">Completa el plan B</h2>
+</div>
+<div class="grid3">
+<div class="card rise" style="--i:1; gap:18px">
+<div class="ill"><svg width="160" height="160" viewBox="0 0 160 160" aria-label="Un candado"><path d="M52 76 V54 a28 28 0 0 1 56 0 V76" fill="none" stroke="#4A4D5C" stroke-width="12" stroke-linecap="round"/><rect x="32" y="72" width="96" height="76" rx="16" fill="#1F4FB8"/><circle cx="80" cy="104" r="10" fill="#F4F0E6"/><rect x="75" y="108" width="10" height="20" rx="4" fill="#F4F0E6"/></svg></div>
+<p><b class="kw">SI</b> la contraseña es correcta: abro la app.</p>
+<p class="fragment"><b class="kw">SI NO:</b> muestro “Contraseña incorrecta”.</p>
+</div>
+<div class="card rise" style="--i:2; gap:18px">
+<div class="ill"><svg width="160" height="160" viewBox="0 0 160 160" aria-label="Un dado mostrando el cuatro"><rect x="26" y="26" width="108" height="108" rx="22" fill="#FFFDF7" stroke="#14151D" stroke-width="6" transform="rotate(-8 80 80)"/><g transform="rotate(-8 80 80)" fill="#14151D"><circle cx="54" cy="54" r="10"/><circle cx="106" cy="54" r="10"/><circle cx="54" cy="106" r="10"/><circle cx="106" cy="106" r="10"/></g></svg></div>
+<p><b class="kw">SI</b> el número es par: digo “par”.</p>
+<p class="fragment"><b class="kw">SI NO:</b> digo “impar”.</p>
+</div>
+<div class="card rise" style="--i:3; gap:18px">
+<div class="ill"><svg width="160" height="160" viewBox="0 0 160 160" aria-label="Una rebanada de pizza"><path d="M80 18 L136 128 Q80 146 24 128 Z" fill="#F5D547"/><path d="M24 128 Q80 146 136 128" fill="none" stroke="#C98A3D" stroke-width="16" stroke-linecap="round"/><circle cx="80" cy="62" r="10" fill="#D9534F"/><circle cx="62" cy="100" r="10" fill="#D9534F"/><circle cx="100" cy="106" r="10" fill="#D9534F"/></svg></div>
+<p><b class="kw">SI</b> queda pizza: me sirvo otra rebanada.</p>
+<p class="fragment"><b class="kw">SI NO:</b> me hago un sándwich.</p>
+</div>
+</div>
+<p class="hand blue rise" style="--i:4">Inventa tu propio plan B: ¡cada respuesta puede ser distinta!</p>
+<aside class="notes">Lean cada SI en voz alta y pidan a la clase que invente el SI NO antes de revelarlo (un clic por tarjeta). Acepten cualquier respuesta que tenga sentido: lo importante es que el SI NO cubra “todo lo demás”. En el dado: ¿hay algún número que no sea par ni impar? (No: por eso basta con SI y SI NO, sin más preguntas.) Extra: pidan que dibujen uno de los tres como diagrama de flujo, con el rombo y sus dos salidas.</aside>
+</section>
 <section id="traffic">
 <div class="head rise" style="--i:0">
 <p class="eyebrow">Decisiones encadenadas</p>
@@ -263,6 +334,110 @@
 <p class="hand blue ab rise" style="--i:7; left:0px; top:340px; width:340px">El primer SÍ gana. Las demás preguntas ya no se hacen.</p>
 </div>
 <aside class="notes">Cuando hay más de dos opciones, encadenamos preguntas: si no es verde, preguntamos si es amarillo; si tampoco, solo queda rojo. En código esto se llama “else if” (si no, si…). Clave: en cuanto una pregunta dice SÍ, tomamos ese camino y ya no hacemos las demás preguntas. Pregunta: ¿cuántas preguntas hace la computadora si el semáforo está en verde? (Una.) ¿Y en rojo? (Dos.)</aside>
+</section>
+<section id="elif-words">
+<div class="head rise" style="--i:0">
+<p class="eyebrow">SI NO, SI · en inglés: <b>elif</b> o <b>else if</b></p>
+<h2 class="title">El semáforo, en palabras</h2>
+</div>
+<div class="row" style="gap:56px; align-items:flex-start">
+<svg class="pop" style="--i:1; flex-shrink:0" width="200" height="420" viewBox="0 0 200 420" aria-label="Un semáforo con luz verde, amarilla y roja">
+<rect x="40" y="10" width="120" height="400" rx="34" fill="#1E2030" stroke="#4A4E68" stroke-width="4"/>
+<circle cx="100" cy="85" r="44" fill="#5BD18B"/>
+<circle cx="100" cy="210" r="44" fill="#F5D547"/>
+<circle cx="100" cy="335" r="44" fill="#FF6B6B"/>
+</svg>
+<div class="col" style="flex:1; gap:0">
+<div class="wrow rise" style="--i:2; margin-top:27px"><p class="kw">SI</p><p>está en verde: avanzo</p><p class="en">if</p></div>
+<div class="wrow rise" style="--i:3; margin-top:10px"><p class="kw">SI NO, SI</p><p>está en amarillo: freno despacio</p><p class="en">elif · else if</p></div>
+<div class="wrow rise" style="--i:4; margin-top:10px"><p class="kw">SI NO</p><p>me detengo</p><p class="en">else</p></div>
+</div>
+</div>
+<div class="grid3">
+<div class="card rise" style="--i:5; padding:28px 32px; gap:8px"><p><b class="kw">SI</b> · uno, al principio</p><p class="soft sm">Hace la primera pregunta.</p></div>
+<div class="card rise" style="--i:6; padding:28px 32px; gap:8px"><p><b class="kw">SI NO, SI</b> · los que quieras</p><p class="soft sm">Cada uno es otra pregunta, en orden.</p></div>
+<div class="card rise" style="--i:7; padding:28px 32px; gap:8px"><p><b class="kw">SI NO</b> · uno, al final</p><p class="soft sm">Es opcional. Atrapa todo lo demás.</p></div>
+</div>
+<aside class="notes">Es el mismo semáforo de la diapositiva anterior, ahora escrito en palabras. Cada luz va junto a su línea. “SI NO, SI” quiere decir “si lo anterior fue NO, pregunta esto otro”. En inglés tiene dos nombres: en Python se escribe “elif” y en otros lenguajes (JavaScript, Java, C) se escribe “else if”. Es lo mismo. Las reglas: siempre se empieza con un solo SI; en medio puede haber cuantos SI NO, SI quieran; y al final puede ir un SI NO (o ninguno). La computadora revisa las preguntas de arriba hacia abajo y se queda con el primer SÍ: las demás ya ni las lee. Pregunten: si el semáforo está en verde, ¿la computadora pregunta por el amarillo? (No.)</aside>
+</section>
+<section id="elif-grades" class="paper">
+<div class="head rise" style="--i:0">
+<p class="eyebrow">Ejemplo · calificaciones</p>
+<h2 class="title">¿Qué letra me toca?</h2>
+</div>
+<!-- D1 0,50,320,160  D2 420,50  D3 840,50  A 30,290,260,110  B 450,290  C 870,290  E 1290,290,300,110 -->
+<div class="dg" style="width:1664px; height:400px">
+<p class="eyebrow ab rise" style="--i:1; left:0px; top:0px; width:320px; text-align:center">SI</p>
+<p class="eyebrow ab rise" style="--i:2; left:420px; top:0px; width:320px; text-align:center">SI NO, SI</p>
+<p class="eyebrow ab rise" style="--i:3; left:840px; top:0px; width:320px; text-align:center">SI NO, SI</p>
+<x-shape kind="diamond" class="dia ab fade" style="--i:1; left:0px; top:50px; width:320px; height:160px"></x-shape>
+<p class="dq ab fade" style="--i:1; left:0px; top:110px; width:320px">¿Nota ≥ 90?</p>
+<x-shape kind="diamond" class="dia ab fade" style="--i:2; left:420px; top:50px; width:320px; height:160px"></x-shape>
+<p class="dq ab fade" style="--i:2; left:420px; top:110px; width:320px">¿Nota ≥ 80?</p>
+<x-shape kind="diamond" class="dia ab fade" style="--i:3; left:840px; top:50px; width:320px; height:160px"></x-shape>
+<p class="dq ab fade" style="--i:3; left:840px; top:110px; width:320px">¿Nota ≥ 70?</p>
+<div class="n ab pop" style="--i:2; left:30px; top:290px; width:260px; height:110px; gap:12px">
+<svg width="40" height="40" viewBox="0 0 40 40" aria-label="Una estrella" style="flex-shrink:0"><path d="M20 3 L25 14 L37 15 L28 23 L31 35 L20 29 L9 35 L12 23 L3 15 L15 14 Z" fill="#E0A82E"/></svg>
+<p>A · ¡Genial!</p></div>
+<div class="n ab pop" style="--i:3; left:450px; top:290px; width:260px; height:110px"><p>B · ¡Muy bien!</p></div>
+<div class="n ab pop" style="--i:4; left:870px; top:290px; width:260px; height:110px"><p>C · Aprobado</p></div>
+<div class="n lp ab pop" style="--i:5; left:1290px; top:290px; width:300px; height:110px; gap:12px">
+<svg width="40" height="40" viewBox="0 0 40 40" aria-label="Un libro abierto" style="flex-shrink:0"><path d="M20 10 C14 6 8 6 3 8 V32 C8 30 14 30 20 34 C26 30 32 30 37 32 V8 C32 6 26 6 20 10 Z" fill="#FFFDF7" stroke="#A8520A" stroke-width="3" stroke-linejoin="round"/><path d="M20 10 V34" stroke="#A8520A" stroke-width="3"/></svg>
+<p>¡A estudiar!</p></div>
+<x-connector class="c fade" style="--i:2" x1="320" y1="130" x2="420" y2="130"></x-connector>
+<x-connector class="c fade" style="--i:3" x1="740" y1="130" x2="840" y2="130"></x-connector>
+<x-connector class="c fade" style="--i:5" x1="1160" y1="130" x2="1440" y2="290" route="hv"></x-connector>
+<x-connector class="c blue fade" style="--i:2" x1="160" y1="210" x2="160" y2="290"></x-connector>
+<x-connector class="c blue fade" style="--i:3" x1="580" y1="210" x2="580" y2="290"></x-connector>
+<x-connector class="c blue fade" style="--i:4" x1="1000" y1="210" x2="1000" y2="290"></x-connector>
+<p class="no ab fade" style="--i:2; left:332px; top:76px; width:76px">NO</p>
+<p class="no ab fade" style="--i:3; left:752px; top:76px; width:76px">NO</p>
+<p class="no ab fade" style="--i:5; left:1220px; top:76px; width:76px">NO</p>
+<p class="yes ab fade" style="--i:2; left:176px; top:232px; width:76px">SÍ</p>
+<p class="yes ab fade" style="--i:3; left:596px; top:232px; width:76px">SÍ</p>
+<p class="yes ab fade" style="--i:4; left:1016px; top:232px; width:76px">SÍ</p>
+<p class="eyebrow ab rise" style="--i:5; left:1460px; top:230px; width:200px">SI NO</p>
+</div>
+<div class="row rise" style="--i:6; gap:16px; align-items:center">
+<p style="font-weight:700; margin-right:8px">Prueba:</p>
+<p class="chip fragment">95 → A</p>
+<p class="chip fragment">83 → B</p>
+<p class="chip fragment">70 → C</p>
+<p class="chip fragment">52 → ¡a estudiar!</p>
+</div>
+<aside class="notes">Una cadena más larga: un SI, dos SI NO, SI y un SI NO al final. Recorran el diagrama con el dedo para cada nota de abajo antes de revelarla (un clic por nota). 95: ¿≥ 90? SÍ → A, y ya no pregunta nada más. 83: ¿≥ 90? NO → ¿≥ 80? SÍ → B. 70: llega a la tercera pregunta y 70 sí es ≥ 70 → C. 52: NO, NO, NO → cae en el SI NO. Pregunten: ¿por qué no hace falta preguntar “¿nota entre 80 y 89?” para la B? (Porque si llegamos a la segunda pregunta, ya sabemos que la nota NO era ≥ 90.)</aside>
+</section>
+<section id="elif-order">
+<div class="head rise" style="--i:0">
+<p class="expill ondark">Mini ejercicio · 3 minutos</p>
+<h2 class="title">¿Dónde está el error?</h2>
+</div>
+<div class="row" style="gap:48px; align-items:flex-start">
+<div class="card blue rise" style="--i:1; width:720px; flex-shrink:0; gap:20px">
+<h3>El plan de Ana</h3>
+<div class="pc">
+<p><span class="kw">SI</span> nota ≥ 70: C</p>
+<p><span class="kw">SI NO, SI</span> nota ≥ 80: B</p>
+<p><span class="kw">SI NO, SI</span> nota ≥ 90: A</p>
+<p><span class="kw">SI NO:</span> ¡a estudiar!</p>
+</div>
+</div>
+<div class="col" style="flex:1; gap:20px">
+<div class="card rise" style="--i:2; padding:28px 32px; gap:10px">
+<p><b>a)</b> Ana sacó 95. ¿Qué letra le da la computadora?</p>
+<p class="fragment t-lp" style="font-weight:700">¡C! La primera pregunta dice SÍ y ya no revisa las demás.</p>
+</div>
+<div class="card rise" style="--i:3; padding:28px 32px; gap:10px">
+<p><b>b)</b> ¿Alguien puede sacar A con este plan?</p>
+<p class="fragment t-lp" style="font-weight:700">¡Nadie! Toda nota ≥ 90 también es ≥ 70.</p>
+</div>
+<div class="card rise" style="--i:4; padding:28px 32px; gap:10px">
+<p><b>c)</b> ¿Cómo lo arreglas?</p>
+<p class="fragment t-if" style="font-weight:700">De la más difícil a la más fácil: 90 → 80 → 70.</p>
+</div>
+</div>
+</div>
+<aside class="notes">Este es el error más común con SI NO, SI. Que lo resuelvan en parejas. a) 95 es ≥ 70, así que la primera pregunta da SÍ → C. Las demás ya no se revisan. b) Nadie: cualquier nota de 90 o más ya entró en la primera pregunta. Lo mismo pasa con la B. c) Hay que preguntar primero lo más exigente. Moraleja: en una cadena de SI NO, SI, el orden importa.</aside>
 </section>
 <section id="and-or" class="paper">
 <div class="head rise" style="--i:0">
@@ -733,7 +908,7 @@
 <div class="card blue rise" style="--i:2">
 <x-icon name="Search" style="width:56px; height:56px; color:#6EA8FF"></x-icon>
 <h3 class="t-if">SI (if)</h3>
-<p class="soft">Una pregunta de sí o no elige el camino. Se puede encadenar y combinar con Y / O.</p>
+<p class="soft">Una pregunta de sí o no elige el camino. SI NO es el plan B; SI NO, SI hace otra pregunta. Se combina con Y / O.</p>
 </div>
 <div class="card lp rise" style="--i:3">
 <x-icon name="Activity" style="width:56px; height:56px; color:#FF9F43"></x-icon>

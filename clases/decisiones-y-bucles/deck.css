@@ -108,3 +108,15 @@ h3 { font-size: 44px; font-weight: 700; line-height: 1.1; letter-spacing: -0.5px
 .pop { animation: pop 550ms cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: calc(var(--i, 0) * 90ms); }
 .fragment { opacity: 0; transform: translateY(14px); transition: opacity 400ms ease, transform 400ms ease; }
 .fragment.visible { opacity: 1; transform: none; }
+
+/* palabras clave y pseudocódigo (SI / SI NO / SI NO, SI) */
+.kw { font-weight: 800; color: var(--if); }
+.paper .kw { color: var(--ifdeep); }
+.en { align-self: center; font-size: 24px; font-weight: 700; letter-spacing: 1px; padding: 4px 14px; border-radius: 10px; border: 2px solid var(--line); color: var(--soft); white-space: nowrap; }
+.paper .en { border-color: #A9A08A; color: var(--darksoft); }
+.pc { display: flex; flex-direction: column; gap: 12px; }
+.pc .in { margin-left: 56px; }
+.wrow { box-sizing: border-box; display: flex; align-items: center; gap: 24px; height: 115px; padding: 0 32px; border-radius: 20px; background: var(--ink2); }
+.wrow .kw { width: 260px; flex-shrink: 0; }
+.wrow .en { margin-left: auto; }
+.ill { display: flex; align-items: center; justify-content: center; height: 170px; }
