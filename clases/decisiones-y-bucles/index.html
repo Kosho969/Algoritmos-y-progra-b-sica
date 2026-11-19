@@ -42,7 +42,7 @@
 </svg>
 <p class="ab" style="left:170px; top:205px; width:260px; height:90px; line-height:90px; text-align:center; font-family:'Bricolage Grotesque', sans-serif; font-size:80px; font-weight:800; color:#6EA8FF">?</p>
 </div>
-<aside class="notes">Bienvenida. Hoy veremos dos de las ideas más importantes de la programación: tomar decisiones (SI, en inglés “if”) y repetir cosas (MIENTRAS, en inglés “while”). Hoy no escribiremos ni una línea de código: vamos a dibujar. El puntito naranja de la derecha está dando vueltas en un bucle; al final de la clase podrán explicar exactamente qué está haciendo.</aside>
+<aside class="notes">Bienvenida. Hoy veremos dos de las ideas más importantes de la programación: tomar decisiones (if, que en español quiere decir “si”) y repetir cosas (while, que quiere decir “mientras”). Desde hoy usaremos las palabras en inglés, igual que en el código. Hoy no escribiremos ni una línea de código: vamos a dibujar. El puntito naranja de la derecha está dando vueltas en un bucle; al final de la clase podrán explicar exactamente qué está haciendo.</aside>
 </section>
 <section id="literal">
 <div class="head rise" style="--i:0">
@@ -99,11 +99,11 @@
 <svg class="bg" aria-label="" width="1920" height="1080" viewBox="0 0 1920 1080"><defs><pattern id="dots-i" width="48" height="48" patternUnits="userSpaceOnUse"><circle cx="24" cy="24" r="2" fill="#2A2D40"/></pattern></defs><rect width="1920" height="1080" fill="url(#dots-i)"/></svg>
 <x-shape kind="diamond" class="ab fade" style="--i:1; left:1180px; top:220px; width:600px; height:640px; background:#1B2A4A; border:6px solid #6EA8FF"></x-shape>
 <p class="ab rise" style="--i:2; left:1180px; top:400px; width:600px; height:280px; line-height:280px; text-align:center; font-family:'Bricolage Grotesque', sans-serif; font-size:240px; font-weight:800; color:#6EA8FF">?</p>
-<p class="eyebrow rise" style="--i:0">Parte 1 · en inglés: <b>if</b></p>
-<p class="mega t-if rise" style="--i:1">SI…</p>
+<p class="eyebrow rise" style="--i:0">Parte 1 · if quiere decir “si”</p>
+<p class="mega t-if rise" style="--i:1">if…</p>
 <h2 class="title rise" style="--i:2">Tomar decisiones</h2>
 <p class="soft rise" style="--i:3; max-width:900px">La computadora se hace una pregunta de sí o no y, según la respuesta, elige un camino.</p>
-<aside class="notes">Primera gran idea: la condición SI. Cuando más adelante escribamos código la palabra será “if”, en inglés. Por ahora pensamos en español: “SI pasa esto, entonces hago aquello”.</aside>
+<aside class="notes">Primera gran idea: la condición if (“si” en español). Usamos la palabra en inglés desde ya, porque así se escribe en el código: “if pasa esto, entonces hago aquello”.</aside>
 </section>
 <section id="umbrella">
 <div class="head rise" style="--i:0">
@@ -127,12 +127,12 @@
 <p class="no ab fade" style="--i:4; left:560px; top:444px; width:76px">NO</p>
 <p class="hand blue ab rise" style="--i:6; left:0px; top:20px; width:480px">Dos caminos.<br>La respuesta elige uno.</p>
 </div>
-<aside class="notes">Recorran el diagrama con el dedo, de izquierda a derecha. Pregunten: “Hoy, ¿por cuál camino iríamos?”. Remarquen tres cosas: (1) la pregunta va en un rombo; (2) del rombo salen dos flechas con etiqueta SÍ y NO; (3) sin importar el camino, al final los dos se vuelven a juntar en “Camino a la escuela”. En palabras: SI llueve, llevo paraguas; SI NO, llevo lentes de sol.</aside>
+<aside class="notes">Recorran el diagrama con el dedo, de izquierda a derecha. Pregunten: “Hoy, ¿por cuál camino iríamos?”. Remarquen tres cosas: (1) la pregunta va en un rombo; (2) del rombo salen dos flechas con etiqueta SÍ y NO; (3) sin importar el camino, al final los dos se vuelven a juntar en “Camino a la escuela”. En palabras: if llueve, llevo paraguas; else, llevo lentes de sol.</aside>
 </section>
 <section id="if-anatomy">
 <div class="head rise" style="--i:0">
 <p class="eyebrow">Anatomía de una decisión</p>
-<h2 class="title">Todo SI tiene tres partes</h2>
+<h2 class="title">Todo if tiene tres partes</h2>
 </div>
 <div class="row" style="gap:64px; align-items:flex-start">
 <!-- D 200,0,360,150  Y 0,250,300,100  N 460,250,300,100  J 180,500,400,96 -->
@@ -165,12 +165,12 @@
 </div>
 <div class="card rise" style="--i:4; padding:28px 32px; flex-direction:row; gap:24px; align-items:flex-start">
 <p class="num">3</p>
-<div class="col" style="gap:6px"><h3>El camino del NO</h3><p class="soft">Lo que pasa si no. A veces se le llama <b>si no</b> (en inglés, “else”).</p></div>
+<div class="col" style="gap:6px"><h3>El camino del NO</h3><p class="soft">Lo que pasa si no. Se le llama <b class="t-if">else</b>.</p></div>
 </div>
 <p class="hand blue rise" style="--i:5">Al final, los dos caminos se juntan otra vez.</p>
 </div>
 </div>
-<aside class="notes">Pongan nombre a cada parte. 1) La condición: la pregunta del rombo. 2) El camino del SÍ. 3) El camino del NO, también llamado “si no” (en código será “else”). Pregunta para la clase: ¿qué pasaría si el rombo tuviera una pregunta como “¿qué hora es?”. Respuesta: no funciona, porque no se responde con sí o no. Eso lo vemos en la siguiente diapositiva.</aside>
+<aside class="notes">Pongan nombre a cada parte. 1) La condición: la pregunta del rombo. 2) El camino del SÍ. 3) El camino del NO, que se llama “else”. Pregunta para la clase: ¿qué pasaría si el rombo tuviera una pregunta como “¿qué hora es?”. Respuesta: no funciona, porque no se responde con sí o no. Eso lo vemos en la siguiente diapositiva.</aside>
 </section>
 <section id="conditions" class="paper">
 <div class="head rise" style="--i:0">
@@ -204,7 +204,7 @@
 </section>
 <section id="no-else" style="gap:32px">
 <div class="head rise" style="--i:0">
-<p class="eyebrow">SI sin “si no”</p>
+<p class="eyebrow">if sin else</p>
 <h2 class="title">A veces el NO no hace nada</h2>
 </div>
 <!-- A 0,200,260,96  D 360,168,400,160  Y 880,188,320,120  E 1320,200,300,96 -->
@@ -226,14 +226,14 @@
 </div>
 <div class="band rise" style="--i:6; padding:24px 40px">
 <p style="font-weight:700; white-space:nowrap">En palabras:</p>
-<p><b class="t-if">SI</b> tengo tarea, hago la tarea. Después, salgo a jugar.</p>
+<p><b class="t-if">if</b> tengo tarea, hago la tarea. Después, salgo a jugar.</p>
 </div>
-<aside class="notes">No todos los SI necesitan un camino de NO. Aquí, si no hay tarea, simplemente nos saltamos el paso. Señalen la línea punteada: es el atajo del NO. Pregunta para la clase: “¿En qué caso se ejecuta ‘Salgo a jugar’?” Respuesta: ¡siempre! Con o sin tarea, ese paso ocurre. Lo único que cambia es si antes hacemos la tarea.</aside>
+<aside class="notes">No todos los if necesitan un camino de NO. Aquí, si no hay tarea, simplemente nos saltamos el paso. Señalen la línea punteada: es el atajo del NO. Pregunta para la clase: “¿En qué caso se ejecuta ‘Salgo a jugar’?” Respuesta: ¡siempre! Con o sin tarea, ese paso ocurre. Lo único que cambia es si antes hacemos la tarea.</aside>
 </section>
 <section id="else-intro">
 <div class="head rise" style="--i:0">
-<p class="eyebrow">SI NO · en inglés: <b>else</b></p>
-<h2 class="title">SI NO: el plan B</h2>
+<p class="eyebrow">else quiere decir “si no”</p>
+<h2 class="title">else: el plan B</h2>
 </div>
 <div class="row" style="gap:64px; align-items:flex-start">
 <!-- S 300,0,300,80  D 250,130,400,160  Y 0,360,300,110  N 600,360,300,110  E 300,560,300,80 -->
@@ -262,19 +262,19 @@
 <div class="card blue rise" style="--i:2; gap:20px">
 <p class="soft sm" style="letter-spacing:2px; text-transform:uppercase; font-weight:700">En palabras</p>
 <div class="pc">
-<p><span class="kw">SI</span> tengo para el bus:</p>
+<p><span class="kw">if</span> tengo para el bus:</p>
 <p class="in">tomo el bus</p>
-<p><span class="kw">SI NO:</span></p>
+<p><span class="kw">else:</span></p>
 <p class="in">camino</p>
 </div>
 </div>
 <div class="card rise" style="--i:3; gap:14px">
-<p><b>El SI NO no lleva pregunta.</b> <span class="soft">Es “en cualquier otro caso”.</span></p>
+<p><b>El else no lleva pregunta.</b> <span class="soft">Es “en cualquier otro caso”.</span></p>
 <p><b>Siempre pasa uno de los dos.</b> <span class="soft">Nunca los dos, nunca ninguno.</span></p>
 </div>
 </div>
 </div>
-<aside class="notes">Comparen con la diapositiva anterior: allí, si la respuesta era NO, no pasaba nada. Ahora el NO tiene su propio camino: el plan B. Eso es el SI NO (en inglés “else”). Detalle importante: el SI NO no hace ninguna pregunta; simplemente atrapa todo lo que no cumplió la condición. Pregunten: ¿puede pasar que tome el bus Y camine? (No, solo uno.) ¿Puede pasar que no haga ninguno? (Tampoco.) Noten la sangría en “En palabras”: lo que va adentro del SI o del SI NO se escribe un poco más a la derecha. En código pasará lo mismo.</aside>
+<aside class="notes">Comparen con la diapositiva anterior: allí, si la respuesta era NO, no pasaba nada. Ahora el NO tiene su propio camino: el plan B. Eso es el else (“si no” en español). Detalle importante: el else no hace ninguna pregunta; simplemente atrapa todo lo que no cumplió la condición. Pregunten: ¿puede pasar que tome el bus Y camine? (No, solo uno.) ¿Puede pasar que no haga ninguno? (Tampoco.) Noten la sangría en “En palabras”: lo que va adentro del if o del else se escribe un poco más a la derecha. En código pasará lo mismo.</aside>
 </section>
 <section id="else-examples" class="paper">
 <div class="head rise" style="--i:0">
@@ -284,22 +284,22 @@
 <div class="grid3">
 <div class="card rise" style="--i:1; gap:18px">
 <div class="ill"><svg width="160" height="160" viewBox="0 0 160 160" aria-label="Un candado"><path d="M52 76 V54 a28 28 0 0 1 56 0 V76" fill="none" stroke="#4A4D5C" stroke-width="12" stroke-linecap="round"/><rect x="32" y="72" width="96" height="76" rx="16" fill="#1F4FB8"/><circle cx="80" cy="104" r="10" fill="#F4F0E6"/><rect x="75" y="108" width="10" height="20" rx="4" fill="#F4F0E6"/></svg></div>
-<p><b class="kw">SI</b> la contraseña es correcta: abro la app.</p>
-<p class="fragment"><b class="kw">SI NO:</b> muestro “Contraseña incorrecta”.</p>
+<p><b class="kw">if</b> la contraseña es correcta: abro la app.</p>
+<p class="fragment"><b class="kw">else:</b> muestro “Contraseña incorrecta”.</p>
 </div>
 <div class="card rise" style="--i:2; gap:18px">
 <div class="ill"><svg width="160" height="160" viewBox="0 0 160 160" aria-label="Un dado mostrando el cuatro"><rect x="26" y="26" width="108" height="108" rx="22" fill="#FFFDF7" stroke="#14151D" stroke-width="6" transform="rotate(-8 80 80)"/><g transform="rotate(-8 80 80)" fill="#14151D"><circle cx="54" cy="54" r="10"/><circle cx="106" cy="54" r="10"/><circle cx="54" cy="106" r="10"/><circle cx="106" cy="106" r="10"/></g></svg></div>
-<p><b class="kw">SI</b> el número es par: digo “par”.</p>
-<p class="fragment"><b class="kw">SI NO:</b> digo “impar”.</p>
+<p><b class="kw">if</b> el número es par: digo “par”.</p>
+<p class="fragment"><b class="kw">else:</b> digo “impar”.</p>
 </div>
 <div class="card rise" style="--i:3; gap:18px">
 <div class="ill"><svg width="160" height="160" viewBox="0 0 160 160" aria-label="Una rebanada de pizza"><path d="M80 18 L136 128 Q80 146 24 128 Z" fill="#F5D547"/><path d="M24 128 Q80 146 136 128" fill="none" stroke="#C98A3D" stroke-width="16" stroke-linecap="round"/><circle cx="80" cy="62" r="10" fill="#D9534F"/><circle cx="62" cy="100" r="10" fill="#D9534F"/><circle cx="100" cy="106" r="10" fill="#D9534F"/></svg></div>
-<p><b class="kw">SI</b> queda pizza: me sirvo otra rebanada.</p>
-<p class="fragment"><b class="kw">SI NO:</b> me hago un sándwich.</p>
+<p><b class="kw">if</b> queda pizza: me sirvo otra rebanada.</p>
+<p class="fragment"><b class="kw">else:</b> me hago un sándwich.</p>
 </div>
 </div>
 <p class="hand blue rise" style="--i:4">Inventa tu propio plan B: ¡cada respuesta puede ser distinta!</p>
-<aside class="notes">Lean cada SI en voz alta y pidan a la clase que invente el SI NO antes de revelarlo (un clic por tarjeta). Acepten cualquier respuesta que tenga sentido: lo importante es que el SI NO cubra “todo lo demás”. En el dado: ¿hay algún número que no sea par ni impar? (No: por eso basta con SI y SI NO, sin más preguntas.) Extra: pidan que dibujen uno de los tres como diagrama de flujo, con el rombo y sus dos salidas.</aside>
+<aside class="notes">Lean cada if en voz alta y pidan a la clase que invente el else antes de revelarlo (un clic por tarjeta). Acepten cualquier respuesta que tenga sentido: lo importante es que el else cubra “todo lo demás”. En el dado: ¿hay algún número que no sea par ni impar? (No: por eso basta con if y else, sin más preguntas.) Extra: pidan que dibujen uno de los tres como diagrama de flujo, con el rombo y sus dos salidas.</aside>
 </section>
 <section id="traffic">
 <div class="head rise" style="--i:0">
@@ -333,11 +333,11 @@
 <p class="no ab fade" style="--i:5; left:1240px; top:30px; width:76px">NO</p>
 <p class="hand blue ab rise" style="--i:7; left:0px; top:340px; width:340px">El primer SÍ gana. Las demás preguntas ya no se hacen.</p>
 </div>
-<aside class="notes">Cuando hay más de dos opciones, encadenamos preguntas: si no es verde, preguntamos si es amarillo; si tampoco, solo queda rojo. En código esto se llama “else if” (si no, si…). Clave: en cuanto una pregunta dice SÍ, tomamos ese camino y ya no hacemos las demás preguntas. Pregunta: ¿cuántas preguntas hace la computadora si el semáforo está en verde? (Una.) ¿Y en rojo? (Dos.)</aside>
+<aside class="notes">Cuando hay más de dos opciones, encadenamos preguntas: si no es verde, preguntamos si es amarillo; si tampoco, solo queda rojo. Esto se llama “elif” o “else if” (“si no, si…”). Clave: en cuanto una pregunta dice SÍ, tomamos ese camino y ya no hacemos las demás preguntas. Pregunta: ¿cuántas preguntas hace la computadora si el semáforo está en verde? (Una.) ¿Y en rojo? (Dos.)</aside>
 </section>
 <section id="elif-words">
 <div class="head rise" style="--i:0">
-<p class="eyebrow">SI NO, SI · en inglés: <b>elif</b> o <b>else if</b></p>
+<p class="eyebrow">elif · en algunos lenguajes se escribe else if</p>
 <h2 class="title">El semáforo, en palabras</h2>
 </div>
 <div class="row" style="gap:56px; align-items:flex-start">
@@ -348,17 +348,17 @@
 <circle cx="100" cy="335" r="44" fill="#FF6B6B"/>
 </svg>
 <div class="col" style="flex:1; gap:0">
-<div class="wrow rise" style="--i:2; margin-top:27px"><p class="kw">SI</p><p>está en verde: avanzo</p><p class="en">if</p></div>
-<div class="wrow rise" style="--i:3; margin-top:10px"><p class="kw">SI NO, SI</p><p>está en amarillo: freno despacio</p><p class="en">elif · else if</p></div>
-<div class="wrow rise" style="--i:4; margin-top:10px"><p class="kw">SI NO</p><p>me detengo</p><p class="en">else</p></div>
+<div class="wrow rise" style="--i:2; margin-top:27px"><p class="kw">if</p><p>está en verde: avanzo</p></div>
+<div class="wrow rise" style="--i:3; margin-top:10px"><p class="kw">elif</p><p>está en amarillo: freno despacio</p><p class="en">o también: else if</p></div>
+<div class="wrow rise" style="--i:4; margin-top:10px"><p class="kw">else</p><p>me detengo</p></div>
 </div>
 </div>
 <div class="grid3">
-<div class="card rise" style="--i:5; padding:28px 32px; gap:8px"><p><b class="kw">SI</b> · uno, al principio</p><p class="soft sm">Hace la primera pregunta.</p></div>
-<div class="card rise" style="--i:6; padding:28px 32px; gap:8px"><p><b class="kw">SI NO, SI</b> · los que quieras</p><p class="soft sm">Cada uno es otra pregunta, en orden.</p></div>
-<div class="card rise" style="--i:7; padding:28px 32px; gap:8px"><p><b class="kw">SI NO</b> · uno, al final</p><p class="soft sm">Es opcional. Atrapa todo lo demás.</p></div>
+<div class="card rise" style="--i:5; padding:28px 32px; gap:8px"><p><b class="kw">if</b> · uno, al principio</p><p class="soft sm">Hace la primera pregunta.</p></div>
+<div class="card rise" style="--i:6; padding:28px 32px; gap:8px"><p><b class="kw">elif</b> · los que quieras</p><p class="soft sm">Cada uno es otra pregunta, en orden.</p></div>
+<div class="card rise" style="--i:7; padding:28px 32px; gap:8px"><p><b class="kw">else</b> · uno, al final</p><p class="soft sm">Es opcional. Atrapa todo lo demás.</p></div>
 </div>
-<aside class="notes">Es el mismo semáforo de la diapositiva anterior, ahora escrito en palabras. Cada luz va junto a su línea. “SI NO, SI” quiere decir “si lo anterior fue NO, pregunta esto otro”. En inglés tiene dos nombres: en Python se escribe “elif” y en otros lenguajes (JavaScript, Java, C) se escribe “else if”. Es lo mismo. Las reglas: siempre se empieza con un solo SI; en medio puede haber cuantos SI NO, SI quieran; y al final puede ir un SI NO (o ninguno). La computadora revisa las preguntas de arriba hacia abajo y se queda con el primer SÍ: las demás ya ni las lee. Pregunten: si el semáforo está en verde, ¿la computadora pregunta por el amarillo? (No.)</aside>
+<aside class="notes">Es el mismo semáforo de la diapositiva anterior, ahora escrito en palabras. Cada luz va junto a su línea. “elif” quiere decir “si lo anterior fue NO, pregunta esto otro”. En inglés tiene dos nombres: en Python se escribe “elif” y en otros lenguajes (JavaScript, Java, C) se escribe “else if”. Es lo mismo. Las reglas: siempre se empieza con un solo if; en medio puede haber cuantos elif quieran; y al final puede ir un else (o ninguno). La computadora revisa las preguntas de arriba hacia abajo y se queda con el primer SÍ: las demás ya ni las lee. Pregunten: si el semáforo está en verde, ¿la computadora pregunta por el amarillo? (No.)</aside>
 </section>
 <section id="elif-grades" class="paper">
 <div class="head rise" style="--i:0">
@@ -367,9 +367,9 @@
 </div>
 <!-- D1 0,50,320,160  D2 420,50  D3 840,50  A 30,290,260,110  B 450,290  C 870,290  E 1290,290,300,110 -->
 <div class="dg" style="width:1664px; height:400px">
-<p class="eyebrow ab rise" style="--i:1; left:0px; top:0px; width:320px; text-align:center">SI</p>
-<p class="eyebrow ab rise" style="--i:2; left:420px; top:0px; width:320px; text-align:center">SI NO, SI</p>
-<p class="eyebrow ab rise" style="--i:3; left:840px; top:0px; width:320px; text-align:center">SI NO, SI</p>
+<p class="eyebrow ab rise" style="--i:1; left:0px; top:0px; width:320px; text-align:center">if</p>
+<p class="eyebrow ab rise" style="--i:2; left:420px; top:0px; width:320px; text-align:center">elif</p>
+<p class="eyebrow ab rise" style="--i:3; left:840px; top:0px; width:320px; text-align:center">elif</p>
 <x-shape kind="diamond" class="dia ab fade" style="--i:1; left:0px; top:50px; width:320px; height:160px"></x-shape>
 <p class="dq ab fade" style="--i:1; left:0px; top:110px; width:320px">¿Nota ≥ 90?</p>
 <x-shape kind="diamond" class="dia ab fade" style="--i:2; left:420px; top:50px; width:320px; height:160px"></x-shape>
@@ -396,7 +396,7 @@
 <p class="yes ab fade" style="--i:2; left:176px; top:232px; width:76px">SÍ</p>
 <p class="yes ab fade" style="--i:3; left:596px; top:232px; width:76px">SÍ</p>
 <p class="yes ab fade" style="--i:4; left:1016px; top:232px; width:76px">SÍ</p>
-<p class="eyebrow ab rise" style="--i:5; left:1460px; top:230px; width:200px">SI NO</p>
+<p class="eyebrow ab rise" style="--i:5; left:1460px; top:230px; width:200px">else</p>
 </div>
 <div class="row rise" style="--i:6; gap:16px; align-items:center">
 <p style="font-weight:700; margin-right:8px">Prueba:</p>
@@ -405,7 +405,7 @@
 <p class="chip fragment">70 → C</p>
 <p class="chip fragment">52 → ¡a estudiar!</p>
 </div>
-<aside class="notes">Una cadena más larga: un SI, dos SI NO, SI y un SI NO al final. Recorran el diagrama con el dedo para cada nota de abajo antes de revelarla (un clic por nota). 95: ¿≥ 90? SÍ → A, y ya no pregunta nada más. 83: ¿≥ 90? NO → ¿≥ 80? SÍ → B. 70: llega a la tercera pregunta y 70 sí es ≥ 70 → C. 52: NO, NO, NO → cae en el SI NO. Pregunten: ¿por qué no hace falta preguntar “¿nota entre 80 y 89?” para la B? (Porque si llegamos a la segunda pregunta, ya sabemos que la nota NO era ≥ 90.)</aside>
+<aside class="notes">Una cadena más larga: un if, dos elif y un else al final. Recorran el diagrama con el dedo para cada nota de abajo antes de revelarla (un clic por nota). 95: ¿≥ 90? SÍ → A, y ya no pregunta nada más. 83: ¿≥ 90? NO → ¿≥ 80? SÍ → B. 70: llega a la tercera pregunta y 70 sí es ≥ 70 → C. 52: NO, NO, NO → cae en el else. Pregunten: ¿por qué no hace falta preguntar “¿nota entre 80 y 89?” para la B? (Porque si llegamos a la segunda pregunta, ya sabemos que la nota NO era ≥ 90.)</aside>
 </section>
 <section id="elif-order">
 <div class="head rise" style="--i:0">
@@ -416,10 +416,10 @@
 <div class="card blue rise" style="--i:1; width:720px; flex-shrink:0; gap:20px">
 <h3>El plan de Ana</h3>
 <div class="pc">
-<p><span class="kw">SI</span> nota ≥ 70: C</p>
-<p><span class="kw">SI NO, SI</span> nota ≥ 80: B</p>
-<p><span class="kw">SI NO, SI</span> nota ≥ 90: A</p>
-<p><span class="kw">SI NO:</span> ¡a estudiar!</p>
+<p><span class="kw">if</span> nota ≥ 70: C</p>
+<p><span class="kw">elif</span> nota ≥ 80: B</p>
+<p><span class="kw">elif</span> nota ≥ 90: A</p>
+<p><span class="kw">else:</span> ¡a estudiar!</p>
 </div>
 </div>
 <div class="col" style="flex:1; gap:20px">
@@ -437,7 +437,7 @@
 </div>
 </div>
 </div>
-<aside class="notes">Este es el error más común con SI NO, SI. Que lo resuelvan en parejas. a) 95 es ≥ 70, así que la primera pregunta da SÍ → C. Las demás ya no se revisan. b) Nadie: cualquier nota de 90 o más ya entró en la primera pregunta. Lo mismo pasa con la B. c) Hay que preguntar primero lo más exigente. Moraleja: en una cadena de SI NO, SI, el orden importa.</aside>
+<aside class="notes">Este es el error más común con elif. Que lo resuelvan en parejas. a) 95 es ≥ 70, así que la primera pregunta da SÍ → C. Las demás ya no se revisan. b) Nadie: cualquier nota de 90 o más ya entró en la primera pregunta. Lo mismo pasa con la B. c) Hay que preguntar primero lo más exigente. Moraleja: en una cadena de elif, el orden importa.</aside>
 </section>
 <section id="and-or" class="paper">
 <div class="head rise" style="--i:0">
@@ -447,7 +447,7 @@
 <div class="grid2">
 <div class="card blue rise" style="--i:1; gap:20px">
 <h3><span class="t-if">Y</span> · las dos deben ser SÍ</h3>
-<p class="soft">Voy al cine <b>SI</b> tengo dinero <b class="t-if">Y</b> ya hice la tarea.</p>
+<p class="soft"><b class="t-if">if</b> tengo dinero <b class="t-if">Y</b> ya hice la tarea → voy al cine.</p>
 <table style="font-size:28px; color:#14151D">
 <tr><th style="width:30%">¿Dinero?</th><th style="width:38%">¿Tarea hecha?</th><th style="width:32%">¿Voy al cine?</th></tr>
 <tr><td>SÍ</td><td>SÍ</td><td style="color:#1F4FB8">Sí, ¡voy!</td></tr>
@@ -458,7 +458,7 @@
 </div>
 <div class="card lp rise" style="--i:2; gap:20px">
 <h3><span class="t-lp">O</span> · basta con un SÍ</h3>
-<p class="soft">Llevo suéter <b>SI</b> hace frío <b class="t-lp">O</b> está lloviendo.</p>
+<p class="soft"><b class="t-if">if</b> hace frío <b class="t-lp">O</b> está lloviendo → llevo suéter.</p>
 <table style="font-size:28px; color:#14151D">
 <tr><th style="width:30%">¿Frío?</th><th style="width:38%">¿Lluvia?</th><th style="width:32%">¿Suéter?</th></tr>
 <tr><td>SÍ</td><td>SÍ</td><td style="color:#A8520A">Sí</td></tr>
@@ -468,7 +468,7 @@
 </table>
 </div>
 </div>
-<aside class="notes">A veces una sola pregunta no alcanza. Con Y, las dos condiciones tienen que cumplirse: solo hay una fila con “sí”. Con O, basta con una: solo hay una fila con “no”. Pidan ejemplos de la vida diaria: “Puedo entrar al juego SI tengo boleto Y mido más de 1.20 m”, “Me quedo en casa SI estoy enfermo O es domingo”. En código estas palabras serán “and” y “or”.</aside>
+<aside class="notes">A veces una sola pregunta no alcanza. Con Y, las dos condiciones tienen que cumplirse: solo hay una fila con “sí”. Con O, basta con una: solo hay una fila con “no”. Pidan ejemplos de la vida diaria: “if tengo boleto Y mido más de 1.20 m → entro al juego”, “if estoy enfermo O es domingo → me quedo en casa”. En código estas palabras serán “and” y “or”.</aside>
 </section>
 <section id="ex1-trace" class="paper">
 <div class="head rise" style="--i:0">
@@ -536,7 +536,7 @@
 <div class="step" style="gap:14px; align-items:flex-start"><x-icon name="CheckCircle" style="width:36px; height:36px; color:#1F4FB8; flex-shrink:0"></x-icon><p class="sm">Termina con un óvalo</p></div>
 </div>
 </div>
-<aside class="notes">Que cada estudiante elija uno (o que trabajen en parejas). Todos deberían intentar al menos el fácil. Soluciones: Fácil → la siguiente diapositiva. Medio → dos rombos encadenados: “¿Es viernes?” SÍ → Pizza; NO → “¿Es lunes?” SÍ → Pasta; NO → Ensalada (igual que el semáforo). Reto → “¿Menos de 20%?” NO → no hace nada; SÍ → Activa ahorro → “¿Menos de 5%?” SÍ → Muestra alerta; NO → nada. Es un SI dentro de otro SI. Al terminar, intercambien cuadernos y revisen la lista de abajo.</aside>
+<aside class="notes">Que cada estudiante elija uno (o que trabajen en parejas). Todos deberían intentar al menos el fácil. Soluciones: Fácil → la siguiente diapositiva. Medio → dos rombos encadenados: “¿Es viernes?” SÍ → Pizza; NO → “¿Es lunes?” SÍ → Pasta; NO → Ensalada (igual que el semáforo). Reto → “¿Menos de 20%?” NO → no hace nada; SÍ → Activa ahorro → “¿Menos de 5%?” SÍ → Muestra alerta; NO → nada. Es un if dentro de otro if. Al terminar, intercambien cuadernos y revisen la lista de abajo.</aside>
 </section>
 <section id="ex2-solution" class="paper">
 <div class="head rise" style="--i:0">
@@ -564,9 +564,9 @@
 </section>
 <section id="bridge" class="accent center" data-transition="fade">
 <p class="eyebrow rise" style="--i:0">La gran idea</p>
-<h1 class="big rise" style="--i:1">SI pregunta una vez.<br>MIENTRAS sigue<br>preguntando.</h1>
+<h1 class="big rise" style="--i:1">if pregunta una vez.<br>while sigue<br>preguntando.</h1>
 <p class="rise" style="--i:2; font-size:44px; font-weight:500; color:#3A2410; max-width:1300px">Ahora vienen los bucles: hacer algo una y otra vez, hasta que llegue el momento de parar.</p>
-<aside class="notes">Momento de transición. Lean la frase en voz alta. Un SI hace la pregunta una sola vez y elige un camino. Un MIENTRAS hace la pregunta, actúa, y vuelve a preguntar… una y otra vez, hasta que la respuesta cambia.</aside>
+<aside class="notes">Momento de transición. Lean la frase en voz alta. Un if hace la pregunta una sola vez y elige un camino. Un while hace la pregunta, actúa, y vuelve a preguntar… una y otra vez, hasta que la respuesta cambia.</aside>
 </section>
 <section id="while-intro" class="center" style="gap:24px">
 <svg class="bg" aria-label="" width="1920" height="1080" viewBox="0 0 1920 1080"><defs><pattern id="dots-w" width="48" height="48" patternUnits="userSpaceOnUse"><circle cx="24" cy="24" r="2" fill="#2A2D40"/></pattern></defs><rect width="1920" height="1080" fill="url(#dots-w)"/></svg>
@@ -576,11 +576,11 @@
 <path d="M260 60 A200 200 0 1 1 86.8 160" fill="none" stroke="#FF9F43" stroke-width="10" stroke-linecap="round" marker-end="url(#hw)"/>
 <circle cx="260" cy="60" r="18" fill="#F4F0E6"><animateMotion dur="8s" repeatCount="indefinite" path="M0 0 A200 200 0 1 1 0 400 A200 200 0 1 1 0 0"/></circle>
 </svg>
-<p class="eyebrow lp rise" style="--i:0">Parte 2 · en inglés: <b>while</b></p>
-<p class="mega t-lp rise" style="--i:1; font-size:180px; letter-spacing:-6px">MIENTRAS…</p>
+<p class="eyebrow lp rise" style="--i:0">Parte 2 · while quiere decir “mientras”</p>
+<p class="mega t-lp rise" style="--i:1; font-size:180px; letter-spacing:-6px">while…</p>
 <h2 class="title rise" style="--i:2">Repetir cosas</h2>
 <p class="soft rise" style="--i:3; max-width:980px">Hazlo otra vez… y otra… y otra, hasta que la respuesta cambie.</p>
-<aside class="notes">Segunda gran idea: el bucle MIENTRAS (en código será “while”). Pregunten: “¿Qué cosas repiten todos los días?” Respuestas típicas: masticar mientras hay comida en la boca, caminar mientras no llego, cepillarse mientras los dientes no están limpios. Todas tienen una acción que se repite y una pregunta que dice cuándo parar.</aside>
+<aside class="notes">Segunda gran idea: el bucle while (“mientras” en español). Pregunten: “¿Qué cosas repiten todos los días?” Respuestas típicas: masticar mientras hay comida en la boca, caminar mientras no llego, cepillarse mientras los dientes no están limpios. Todas tienen una acción que se repite y una pregunta que dice cuándo parar.</aside>
 </section>
 <section id="shampoo">
 <div class="head rise" style="--i:0">
@@ -613,12 +613,12 @@
 </div>
 </div>
 </div>
-<aside class="notes">Cuenten el chiste del champú: las instrucciones dicen “repite”, pero no dicen cuántas veces. Una persona usa el sentido común; una computadora no tiene sentido común, así que se quedaría lavándose el pelo para siempre. Pregunta: ¿cómo arreglarían las instrucciones? Respuestas buenas: “Repite mientras el pelo siga sucio” o “Repite una sola vez”. ¡Eso es exactamente un bucle MIENTRAS!</aside>
+<aside class="notes">Cuenten el chiste del champú: las instrucciones dicen “repite”, pero no dicen cuántas veces. Una persona usa el sentido común; una computadora no tiene sentido común, así que se quedaría lavándose el pelo para siempre. Pregunta: ¿cómo arreglarían las instrucciones? Respuestas buenas: “Repite mientras el pelo siga sucio” o “Repite una sola vez”. ¡Eso es exactamente un bucle while!</aside>
 </section>
 <section id="while-anatomy">
 <div class="head rise" style="--i:0">
 <p class="eyebrow lp">Anatomía de un bucle</p>
-<h2 class="title">Un bucle es un SI que regresa</h2>
+<h2 class="title">Un bucle es un if que regresa</h2>
 </div>
 <div class="row" style="gap:64px; align-items:flex-start">
 <!-- S 250,0,400,90  D 250,170,400,160  A 260,440,380,110  E 680,440,220,110 -->
@@ -656,14 +656,14 @@
 </div>
 </div>
 </div>
-<aside class="notes">Sigan el punto naranja con la mirada: pregunta → mordida → de vuelta a la pregunta. Fíjense que el diagrama es casi igual al de un SI; la única diferencia es la flecha que regresa. En palabras: MIENTRAS tenga hambre, doy una mordida. Pregunta: si me siento sin hambre, ¿cuántas mordidas doy? Respuesta: cero. El bucle puede ejecutarse cero veces.</aside>
+<aside class="notes">Sigan el punto naranja con la mirada: pregunta → mordida → de vuelta a la pregunta. Fíjense que el diagrama es casi igual al de un if; la única diferencia es la flecha que regresa. En palabras: while tenga hambre, doy una mordida. Pregunta: si me siento sin hambre, ¿cuántas mordidas doy? Respuesta: cero. El bucle puede ejecutarse cero veces.</aside>
 </section>
 <section id="soup-trace" class="paper" style="gap:32px">
 <div class="head rise" style="--i:0">
 <p class="eyebrow lp">Seguir un bucle paso a paso</p>
 <h2 class="title">Ejecutemos el bucle a mano</h2>
 </div>
-<p class="rise" style="--i:1"><b class="t-lp">MIENTRAS</b> quede sopa en el plato → tomo una cucharada. <span class="soft">El plato empieza con 3 cucharadas.</span></p>
+<p class="rise" style="--i:1"><b class="t-lp">while</b> quede sopa en el plato → tomo una cucharada. <span class="soft">El plato empieza con 3 cucharadas.</span></p>
 <div class="col" style="gap:12px">
 <div class="trow th rise" style="--i:2"><p>Vuelta</p><p>¿Queda sopa?</p><p>Entonces…</p><p>Cucharadas que quedan</p></div>
 <div class="trow fragment"><p>1</p><p><b>SÍ</b> (hay 3)</p><p>tomo una cucharada</p><p>2</p></div>
@@ -683,13 +683,13 @@
 <div class="card lp rise" style="--i:1; gap:20px">
 <p class="t-lp" style="font-family:'Bricolage Grotesque', sans-serif; font-size:120px; font-weight:800; line-height:1">∞</p>
 <h3>Nunca termina</h3>
-<p><b class="t-lp">MIENTRAS</b> el vaso no esté lleno → <b>espero</b>.</p>
+<p><b class="t-lp">while</b> el vaso no esté lleno → <b>espero</b>.</p>
 <p class="soft">Nadie sirve agua. El vaso sigue vacío. Esperas… para siempre.</p>
 </div>
 <div class="card blue rise" style="--i:2; gap:20px">
 <div style="height:120px; display:flex; align-items:center"><x-icon name="CheckCircle" style="width:104px; height:104px; color:#6EA8FF"></x-icon></div>
 <h3>Sí termina</h3>
-<p><b class="t-lp">MIENTRAS</b> el vaso no esté lleno → <b>sirvo un poco de agua</b>.</p>
+<p><b class="t-lp">while</b> el vaso no esté lleno → <b>sirvo un poco de agua</b>.</p>
 <p class="soft">En cada vuelta el vaso se llena más, así que algún día la respuesta será NO.</p>
 </div>
 </div>
@@ -702,13 +702,13 @@
 <section id="if-vs-while">
 <div class="head rise" style="--i:0">
 <p class="eyebrow">Lado a lado</p>
-<h2 class="title">SI vs MIENTRAS: ¿qué cambia?</h2>
+<h2 class="title">if vs while: ¿qué cambia?</h2>
 </div>
 <div class="row" style="gap:144px">
 <div class="col" style="width:760px; gap:16px">
 <!-- D 180,0,400,150  A 230,220,300,100  E 230,400,300,90 -->
 <div class="dg" style="width:760px; height:490px">
-<p class="ab rise t-if" style="--i:1; left:0px; top:0px; width:170px; height:56px; font-family:'Bricolage Grotesque', sans-serif; font-size:36px; font-weight:800">SI</p>
+<p class="ab rise t-if" style="--i:1; left:0px; top:0px; width:170px; height:56px; font-family:'Bricolage Grotesque', sans-serif; font-size:36px; font-weight:800">if</p>
 <x-shape kind="diamond" class="dia ab fade" style="--i:1; left:180px; top:0px; width:400px; height:150px"></x-shape>
 <p class="dq ab fade" style="--i:1; left:180px; top:55px; width:400px">¿Pregunta?</p>
 <div class="n ab pop" style="--i:2; left:230px; top:220px; width:300px; height:100px"><p>Haz algo</p></div>
@@ -726,7 +726,7 @@
 <div class="col" style="width:760px; gap:16px">
 <!-- D 180,0,400,150  A 230,220,300,100  E 230,400,300,90 -->
 <div class="dg" style="width:760px; height:490px">
-<p class="ab rise t-lp" style="--i:1; left:0px; top:0px; width:200px; height:56px; font-family:'Bricolage Grotesque', sans-serif; font-size:36px; font-weight:800">MIENTRAS</p>
+<p class="ab rise t-lp" style="--i:1; left:0px; top:0px; width:200px; height:56px; font-family:'Bricolage Grotesque', sans-serif; font-size:36px; font-weight:800">while</p>
 <x-shape kind="diamond" class="dia lp ab fade" style="--i:1; left:180px; top:0px; width:400px; height:150px"></x-shape>
 <p class="dq ab fade" style="--i:1; left:180px; top:55px; width:400px">¿Pregunta?</p>
 <div class="n lp ab pop" style="--i:2; left:230px; top:220px; width:300px; height:100px"><p>Haz algo</p></div>
@@ -745,7 +745,7 @@
 <p class="rise" style="--i:4">Repite la acción <b class="t-lp">mientras</b> la respuesta sea SÍ.</p>
 </div>
 </div>
-<aside class="notes">Pidan a la clase que encuentre la diferencia entre los dos diagramas, como en el juego de “encuentra las diferencias”. Solo hay una: la flecha naranja que regresa de la acción a la pregunta. En el SI, después de actuar seguimos hacia abajo. En el MIENTRAS, después de actuar volvemos a preguntar. Por eso el SI actúa como máximo una vez, y el MIENTRAS puede actuar cero, una o muchas veces.</aside>
+<aside class="notes">Pidan a la clase que encuentre la diferencia entre los dos diagramas, como en el juego de “encuentra las diferencias”. Solo hay una: la flecha naranja que regresa de la acción a la pregunta. En el if, después de actuar seguimos hacia abajo. En el while, después de actuar volvemos a preguntar. Por eso el if actúa como máximo una vez, y el while puede actuar cero, una o muchas veces.</aside>
 </section>
 <section id="counting" class="paper">
 <div class="head rise" style="--i:0">
@@ -792,7 +792,7 @@
 <div class="card lp rise" style="--i:1; width:760px; flex-shrink:0; gap:22px">
 <h3>El plan</h3>
 <div class="step"><p class="num">1</p><p>Pon 10 galletas en el frasco.</p></div>
-<div class="step"><p class="num lp">2</p><p><b class="t-lp">MIENTRAS</b> haya más de 4 galletas en el frasco:</p></div>
+<div class="step"><p class="num lp">2</p><p><b class="t-lp">while</b> haya más de 4 galletas en el frasco:</p></div>
 <div class="step" style="margin-left:80px"><p class="num lp">3</p><p>come 2 galletas y di “¡ñam!”</p></div>
 <div class="step"><p class="num">4</p><p>Di “¡Estoy lleno!”</p></div>
 </div>
@@ -820,19 +820,19 @@
 </div>
 <div class="grid2" style="gap:28px">
 <div class="card rise" style="--i:1; gap:20px; padding:32px 40px">
-<p><b class="t-lp">MIENTRAS</b> la tina no esté llena: dejo la llave abierta.</p>
+<p><b class="t-lp">while</b> la tina no esté llena: dejo la llave abierta.</p>
 <div class="step fragment" style="gap:16px"><x-icon name="CheckCircle" style="width:40px; height:40px; color:#6EA8FF; flex-shrink:0"></x-icon><p class="t-if"><b>Para.</b> El agua sube hasta llenarla.</p></div>
 </div>
 <div class="card rise" style="--i:2; gap:20px; padding:32px 40px">
-<p>El contador empieza en 1. <b class="t-lp">MIENTRAS</b> el contador sea mayor que 0: le sumo 1.</p>
+<p>El contador empieza en 1. <b class="t-lp">while</b> el contador sea mayor que 0: le sumo 1.</p>
 <div class="step fragment" style="gap:16px"><x-icon name="Warning" style="width:40px; height:40px; color:#FF9F43; flex-shrink:0"></x-icon><p class="t-lp"><b>Nunca para.</b> El contador solo crece: 2, 3, 4…</p></div>
 </div>
 <div class="card rise" style="--i:3; gap:20px; padding:32px 40px">
-<p><b class="t-lp">MIENTRAS</b> la planta tenga sed: miro la planta.</p>
+<p><b class="t-lp">while</b> la planta tenga sed: miro la planta.</p>
 <div class="step fragment" style="gap:16px"><x-icon name="Warning" style="width:40px; height:40px; color:#FF9F43; flex-shrink:0"></x-icon><p class="t-lp"><b>Nunca para.</b> Mirarla no la riega.</p></div>
 </div>
 <div class="card rise" style="--i:4; gap:20px; padding:32px 40px">
-<p><b class="t-lp">MIENTRAS</b> haya platos sucios: lavo un plato.</p>
+<p><b class="t-lp">while</b> haya platos sucios: lavo un plato.</p>
 <div class="step fragment" style="gap:16px"><x-icon name="CheckCircle" style="width:40px; height:40px; color:#6EA8FF; flex-shrink:0"></x-icon><p class="t-if"><b>Para.</b> En cada vuelta hay un plato sucio menos.</p></div>
 </div>
 </div>
@@ -847,18 +847,18 @@
 <div class="col" style="width:940px; gap:26px">
 <div class="step rise" style="--i:1; align-items:flex-start"><p class="num">1</p><p>A piensa en secreto un número del 1 al 100.</p></div>
 <div class="step rise" style="--i:2; align-items:flex-start"><p class="num">2</p><p>B intenta adivinarlo.</p></div>
-<div class="step rise" style="--i:3; align-items:flex-start"><p class="num lp">3</p><p><b class="t-lp">MIENTRAS</b> B no acierte: <b class="t-if">SI</b> el número que dijo es muy alto, A dice “más bajo”; si no, dice “más alto”. B vuelve a intentar.</p></div>
+<div class="step rise" style="--i:3; align-items:flex-start"><p class="num lp">3</p><p><b class="t-lp">while</b> B no acierte: <b class="t-if">if</b> el número que dijo es muy alto, A dice “más bajo”; <b class="t-if">else</b>, dice “más alto”. B vuelve a intentar.</p></div>
 <div class="step rise" style="--i:4; align-items:flex-start"><p class="num">4</p><p>Cuando B acierta: ¡a celebrar! Cambien de papel.</p></div>
 </div>
 <div class="card blue rise" style="--i:5; flex:1; gap:20px">
 <h3>Su misión</h3>
 <p class="soft">Jueguen 2 rondas.</p>
 <p class="soft">Cuenten los intentos: es el número de vueltas del bucle.</p>
-<p>Dibujen el diagrama: necesita <b class="t-lp">1 bucle</b> y <b class="t-if">1 SI</b> adentro.</p>
+<p>Dibujen el diagrama: necesita <b class="t-lp">1 bucle</b> y <b class="t-if">1 if</b> adentro.</p>
 <p class="hand blue">Extra: ¿cuál es el mejor primer intento? (Pista: 50)</p>
 </div>
 </div>
-<aside class="notes">Este reto combina todo: un bucle (seguir adivinando mientras no acierte) con un SI adentro (¿muy alto o muy bajo?). Dejen que jueguen primero y luego dibujen. La solución está en la siguiente diapositiva. Sobre el extra: empezar en 50 elimina la mitad de los números con cada pista; así siempre se adivina en 7 intentos o menos. Es una idea famosa en computación llamada “búsqueda binaria”.</aside>
+<aside class="notes">Este reto combina todo: un bucle (seguir adivinando mientras no acierte) con un if adentro (¿muy alto o muy bajo?). Dejen que jueguen primero y luego dibujen. La solución está en la siguiente diapositiva. Sobre el extra: empezar en 50 elimina la mitad de los números con cada pista; así siempre se adivina en 7 intentos o menos. Es una idea famosa en computación llamada “búsqueda binaria”.</aside>
 </section>
 <section id="ex5-solution">
 <div class="head rise" style="--i:0">
@@ -892,7 +892,7 @@
 <p class="yes ab fade" style="--i:5; left:1190px; top:282px; width:76px">SÍ</p>
 <p class="no ab fade" style="--i:5; left:1006px; top:436px; width:76px">NO</p>
 </div>
-<aside class="notes">Recorran el diagrama con el dedo. Lo naranja es el bucle: “B adivina” → “¿Acertó?” → si NO, damos una pista y volvemos a “B adivina”. Lo azul es el SI que vive dentro del bucle: decide qué pista dar. La única salida del bucle es acertar. Pregunten: ¿qué hace que este bucle termine algún día? (Cada pista acerca a B al número, así que la respuesta a “¿Acertó?” termina siendo SÍ.) Acepten diagramas distintos si la lógica es correcta.</aside>
+<aside class="notes">Recorran el diagrama con el dedo. Lo naranja es el bucle: “B adivina” → “¿Acertó?” → si NO, damos una pista y volvemos a “B adivina”. Lo azul es el if que vive dentro del bucle: decide qué pista dar. La única salida del bucle es acertar. Pregunten: ¿qué hace que este bucle termine algún día? (Cada pista acerca a B al número, así que la respuesta a “¿Acertó?” termina siendo SÍ.) Acepten diagramas distintos si la lógica es correcta.</aside>
 </section>
 <section id="recap">
 <div class="head rise" style="--i:0">
@@ -907,21 +907,21 @@
 </div>
 <div class="card blue rise" style="--i:2">
 <x-icon name="Search" style="width:56px; height:56px; color:#6EA8FF"></x-icon>
-<h3 class="t-if">SI (if)</h3>
-<p class="soft">Una pregunta de sí o no elige el camino. SI NO es el plan B; SI NO, SI hace otra pregunta. Se combina con Y / O.</p>
+<h3 class="t-if">if</h3>
+<p class="soft">Una pregunta de sí o no elige el camino. else es el plan B; elif hace otra pregunta. Se combina con Y / O.</p>
 </div>
 <div class="card lp rise" style="--i:3">
 <x-icon name="Activity" style="width:56px; height:56px; color:#FF9F43"></x-icon>
-<h3 class="t-lp">MIENTRAS (while)</h3>
+<h3 class="t-lp">while</h3>
 <p class="soft">Repite mientras la respuesta sea SÍ. Algo adentro debe cambiar la respuesta, o nunca para.</p>
 </div>
 </div>
 <div class="band rise" style="--i:4">
 <x-icon name="GraduationCap" style="width:56px; height:56px; color:#FF9F43; flex-shrink:0"></x-icon>
-<p><b>Boleto de salida:</b> dibuja el diagrama de flujo de lavarte los dientes. Usa un <b class="t-if">SI</b> y un <b class="t-lp">MIENTRAS</b>.</p>
+<p><b>Boleto de salida:</b> dibuja el diagrama de flujo de lavarte los dientes. Usa un <b class="t-if">if</b> y un <b class="t-lp">while</b>.</p>
 </div>
 <p class="hand blue rise" style="--i:5">Próxima clase: convertimos estos diagramas en código de verdad.</p>
-<aside class="notes">Cierre. Repasen las tres tarjetas preguntando a la clase en vez de leerlas. Boleto de salida: antes de irse, cada estudiante entrega un diagrama de lavarse los dientes. Ejemplo de respuesta: “¿Tengo pasta? NO → pido pasta” (SI) y “MIENTRAS los dientes no estén limpios → cepillo” (MIENTRAS). Les sirve para ver quién entendió y quién necesita repaso.</aside>
+<aside class="notes">Cierre. Repasen las tres tarjetas preguntando a la clase en vez de leerlas. Boleto de salida: antes de irse, cada estudiante entrega un diagrama de lavarse los dientes. Ejemplo de respuesta: “¿Tengo pasta? NO → pido pasta” (if) y “while los dientes no estén limpios → cepillo” (while). Les sirve para ver quién entendió y quién necesita repaso.</aside>
 </section>
 </div>
 </div>
